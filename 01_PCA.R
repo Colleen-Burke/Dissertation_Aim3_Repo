@@ -26,3 +26,12 @@ pca_df <- base_df |>
 # --- Run PCA ---
 pca_fit <- prcomp(pca_df |> select(-biospecimen_id), center = TRUE, scale. = TRUE)
 
+# --- Extract scores and merge back ---
+pca_scores <- pca_df |>
+  select(biospecimen_id) |>
+  bind_cols(as.data.frame(pca_fit$x) |> 
+              setNames(paste0("PC", seq_len(ncol(pca_fit$x)))))
+
+analysis_df <- base_df |>
+  left_join(pca_scores, by = "biospecimen_id")
+
