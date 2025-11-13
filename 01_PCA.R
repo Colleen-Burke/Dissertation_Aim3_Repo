@@ -67,3 +67,6 @@ pca_fit$rotation |>
   theme_minimal(base_size = 12) +
   theme(legend.position = "none")
 
+
+# Export the full dataset with PCA scores
+saveRDS(analysis_df, "Aim3_Data_with_PCA.rds")
