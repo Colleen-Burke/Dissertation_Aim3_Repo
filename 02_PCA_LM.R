@@ -70,3 +70,26 @@ summary(lm_sid1)
 
 lm_sid2 <- lm(PC2 ~ isolation_cat_d, data = analysis_df)
 summary(lm_sid2)
+
+
+
+
+
+# ---------- Race models ----------
+#lm_race1 <- lm(PC1 ~ race_f, data = analysis_df)
+#summary(lm_race1)
+
+#lm_race2 <- lm(PC2 ~ race_f, data = analysis_df)
+#summary(lm_race2)
+
+
+# ---------- Race Dichotomized -----------
+#lm_raced1 <- lm(PC1 ~ race_dichotomized, data = analysis_df)
+#summary(lm_raced1)
+
+#lm_raced2 <- lm(PC2 ~ race_dichotomized, data = analysis_df)
+#summary(lm_raced2)
+
+
+
+
