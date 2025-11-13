@@ -23,3 +23,6 @@ pca_df <- base_df |>
   select(biospecimen_id, all_of(biomarkers)) |>
   drop_na()
 
+# --- Run PCA ---
+pca_fit <- prcomp(pca_df |> select(-biospecimen_id), center = TRUE, scale. = TRUE)
+
