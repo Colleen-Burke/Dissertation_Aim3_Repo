@@ -93,3 +93,31 @@ summary(lm_sid2)
 
 
 
+
+#--- Social Isolation Stratified by Race ---
+# Split the data by race
+analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
+analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
+
+# Dichotomized models
+lm_sid1_race1 <- lm(PC1 ~ isolation_cat_d, data = analysis_df_race1)
+lm_sid1_race2 <- lm(PC1 ~ isolation_cat_d, data = analysis_df_race2)
+
+summary(lm_sid1_race1)
+summary(lm_sid1_race2)
+
+
+#Ordinal models
+lm_sif1_race1 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df_race1)
+lm_sif1_race2 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df_race2) 
+
+summary(lm_sif1_race1)
+summary(lm_sif1_race2)
+
+#Nominal models
+lm_2sif1_race1 <- lm(PC1 ~ isolation_cat_nominal, data = analysis_df_race1)
+lm_2sif1_race2 <- lm(PC1 ~ isolation_cat_nominal, data = analysis_df_race2) 
+
+summary(lm_2sif1_race1)
+summary(lm_2sif1_race2)
+
