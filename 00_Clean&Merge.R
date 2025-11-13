@@ -249,3 +249,53 @@ Transitions <- Transitions |>
     # Convert all _d variables to factors (Low as reference)
     across(ends_with("_d"), ~ factor(.x, levels = c("Low", "High")))
   )
+
+
+
+
+# Load Biomarker Data
+Immune <- read.csv(here("Biomarker_Data.csv"))
+
+#--- Immune Cleaning ---
+names(Immune)
+
+Immune <- Immune |>
+  rename(
+    IL_1beta      = IL.1β,
+    IL_6          = IL.6,
+    IP_10         = IP.10,
+    IFN_lambda1   = IFN.λ1,
+    IL_8          = IL.8,
+    IL_12p70      = IL.12p70,
+    IFN_alpha2    = IFN.α2,
+    IFN_lambda2_3 = IFN.λ2.3,
+    GM_CSF        = GM.CSF,
+    IFN_beta      = IFN.β,
+    IL_10         = IL.10,
+    IFN_gamma     = IFN.γ,
+    VILIP_1       = VILIP.1,
+    MCP_1         = MCP.1,
+    sTREM_2       = sTREM.2,
+    TGF_beta1     = TGF.β1,
+    sTREM_1       = sTREM.1,
+    beta_NGF      = β.NGF,
+    IL_18         = IL.18
+  )
+
+
+
+#--- Merge Datasets ---
+Aim3_Data <- Transitions |>
+  right_join(Immune, by = "biospecimen_id")
+
+names(Aim3_Data)
+
+#write.csv(Aim3_Data, here("Aim3_Data.csv"))
+
+saveRDS(Aim3_Data, here("Aim3_Data.rds"))
+
+
+
+
+
+
