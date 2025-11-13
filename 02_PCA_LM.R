@@ -46,3 +46,27 @@ summary(lm_2si1)
 
 lm_2si2 <- lm(PC2 ~ isolation_cat_nominal, data = analysis_df)
 summary(lm_2si2)
+
+
+
+
+# ---------- Social Relationships Dichotomized Models ----------
+lm_srd1 <- lm(PC1 ~ social_relationships_d, data = analysis_df)
+summary(lm_srd1)
+
+lm_srd2 <- lm(PC2 ~ social_relationships_d, data = analysis_df)
+summary(lm_srd2)
+
+# ---------- Social Activities Dichotomized Models ----------
+lm_sad1 <- lm(PC1 ~ social_activities_d, data = analysis_df)
+summary(lm_sad1)
+
+lm_sad2 <- lm(PC2 ~ social_activities_d, data = analysis_df)
+summary(lm_sad2)
+
+# ---------- Social Isolation Dichotomized Models ----------
+lm_sid1 <- lm(PC1 ~ isolation_cat_d, data = analysis_df)
+summary(lm_sid1)
+
+lm_sid2 <- lm(PC2 ~ isolation_cat_d, data = analysis_df)
+summary(lm_sid2)
