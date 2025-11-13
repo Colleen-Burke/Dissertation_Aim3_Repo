@@ -49,3 +49,21 @@ ggplot(scree_df, aes(PC, Variance)) +
   labs(title = "Scree Plot", y = "Proportion of Variance Explained") +
   theme_minimal()
 
+# --- Top loadings for PC1 & PC2 ---
+pca_fit$rotation |>
+  as.data.frame() |>
+  rownames_to_column("biomarker") |>
+  select(biomarker, PC1, PC2) |>
+  pivot_longer(c(PC1, PC2), names_to = "Component", values_to = "Loading") |>
+  group_by(Component) |>
+  slice_max(abs(Loading), n = 10) |> 
+  ggplot(aes(x = reorder(biomarker, Loading), y = Loading, fill = Component)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ Component, scales = "free_y") +
+  geom_hline(yintercept = 0, linetype = "dashed", linewidth = 0.3) +
+  labs(title = "Top 10 Biomarker Loadings for PC1 & PC2",
+       x = "Biomarker", y = "Loading") +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
+
