@@ -35,3 +35,17 @@ pca_scores <- pca_df |>
 analysis_df <- base_df |>
   left_join(pca_scores, by = "biospecimen_id")
 
+# --- Variance explained & scree plot ---
+var_explained <- (pca_fit$sdev)^2 / sum(pca_fit$sdev^2)
+
+scree_df <- tibble(
+  PC = seq_along(var_explained),
+  Variance = var_explained,
+  Cumulative = cumsum(var_explained)
+)
+
+ggplot(scree_df, aes(PC, Variance)) +
+  geom_line() + geom_point() +
+  labs(title = "Scree Plot", y = "Proportion of Variance Explained") +
+  theme_minimal()
+
