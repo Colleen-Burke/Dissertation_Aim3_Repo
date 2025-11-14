@@ -17,3 +17,40 @@ outcomes <- c(
 valid_exposures <- intersect(exposures, names(top10_analysis_df))
 valid_outcomes  <- intersect(outcomes,  names(top10_analysis_df))
 
+# (optional) tell yourself what was missing
+setdiff(exposures, valid_exposures)
+setdiff(outcomes,  valid_outcomes)
+
+model_grid <- expand_grid(exposure = valid_exposures,
+                          outcome  = valid_outcomes) |>
+  mutate(
+    data = map2(exposure, outcome, ~
+                  top10_analysis_df |>
+                  select(all_of(c(.x, .y))) |>
+                  drop_na()
+    )
+  )
+
+view(model_grid)
+
+# Run each simple linear model
+model_results <- model_grid %>%
+  mutate(
+    model = map2(
+      exposure, outcome,
+      ~ lm(as.formula(paste(.y, "~", .x)), data = top10_analysis_df)
+    ),
+    tidy = map(model, broom::tidy)
+  ) %>%
+  select(exposure, outcome, tidy) %>%
+  unnest(tidy)
+
+# View summary table of results
+top10_SLM_summary <- model_results %>%
+  filter(term != "(Intercept)") %>%  # keep exposure term only
+  select(exposure, outcome, term, estimate, std.error, statistic, p.value)
+
+print(top10_SLM_summary)
+
+
+
