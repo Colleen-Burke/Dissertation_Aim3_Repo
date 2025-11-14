@@ -54,3 +54,4 @@ print(top10_SLM_summary)
 
 
 
+saveRDS(top10_SLM_summary, here("top10_SLM_summary.rds"))
