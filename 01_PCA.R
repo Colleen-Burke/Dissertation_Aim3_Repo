@@ -56,7 +56,7 @@ pca_fit$rotation |>
   select(biomarker, PC1, PC2) |>
   pivot_longer(c(PC1, PC2), names_to = "Component", values_to = "Loading") |>
   group_by(Component) |>
-  slice_max(abs(Loading), n = 10) |> 
+  slice_max(abs(Loading), n = 15) |> 
   ggplot(aes(x = reorder(biomarker, Loading), y = Loading, fill = Component)) +
   geom_col() +
   coord_flip() +

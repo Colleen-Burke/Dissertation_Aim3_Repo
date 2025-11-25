@@ -4,7 +4,8 @@ library(here)
 library(dplyr)
 
 
-top10_analysis_df <- read_csv(here("analysis_df.csv"))
+top10_analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
+#top10_analysis_df <- read_csv(here("analysis_df.csv"))
 
 # what you wanted
 exposures <- c("isolation_cat_ordinal", "isolation_cat_nominal", "isolation_cat_d")
@@ -50,8 +51,8 @@ top10_SLM_summary <- model_results %>%
   filter(term != "(Intercept)") %>%  # keep exposure term only
   select(exposure, outcome, term, estimate, std.error, statistic, p.value)
 
-print(top10_SLM_summary)
+print(as.data.frame(top10_SLM_summary))
 
+write.csv(top10_SLM_summary, here("top10_SLM_summary.csv"))
 
-
-saveRDS(top10_SLM_summary, here("top10_SLM_summary.rds"))
+#saveRDS(top10_SLM_summary, here("top10_SLM_summary.rds"))

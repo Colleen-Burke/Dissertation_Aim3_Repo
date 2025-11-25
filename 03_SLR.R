@@ -48,5 +48,6 @@ SLM_summary |>
   slice_head(n = 100) |> 
   print(n = 100)
 
+write.csv(SLM_summary, here("SLM_summary.csv"))
 
-saveRDS(SLM_summary, here("SLM_summary.rds"))
+#saveRDS(SLM_summary, here("SLM_summary.rds"))
