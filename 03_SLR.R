@@ -2,13 +2,17 @@ library(tidyverse)
 library(broom)
 library(here)
 
+analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
+
+
 # Define exposures and outcomes
 exposures <- c(
   "social_relationships_ordinal", "social_relationships_nominal", 
   "social_relationships_d", "social_activities_ordinal", 
   "social_activities_nominal", "social_activities_d", "isolation_cat_ordinal", 
   "isolation_cat_nominal", "isolation_cat_d", "isolation_item_communicate",
-  "isolation_item_visit", "race_f", "race_dichotomized"
+  "isolation_item_visit", "isolation_item_communicate_d",
+  "isolation_item_visit_d", "race_f", "race_dichotomized"
 )
 
 outcomes <- c(

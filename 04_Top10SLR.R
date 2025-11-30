@@ -8,7 +8,10 @@ top10_analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 #top10_analysis_df <- read_csv(here("analysis_df.csv"))
 
 # what you wanted
-exposures <- c("isolation_cat_ordinal", "isolation_cat_nominal", "isolation_cat_d")
+exposures <- c("isolation_cat_ordinal", "isolation_cat_nominal", 
+               "isolation_cat_d", "isolation_item_visit", 
+               "isolation_item_communicate", "isolation_item_visit_d", 
+               "isolation_item_communicate_d")
 outcomes <- c(
   "IL_10", "IFN_gamma", "IL_12p70", "IFN_alpha2", "CX3CL1",
   "IFN_lambda1", "IFN_lambda2_3", "sTREM_1", "sRAGE", "GM_CSF"
