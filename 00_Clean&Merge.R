@@ -20,7 +20,7 @@ Transitions <- Transitions |>
   select(
     record_id, biospecimen_id,
     promis_global05_902706, promis_global09r_fbd679,
-    isolation_score, isolation_cat, isolation_cat2,
+    isolation_score, isolation_cat, isolation_cat2, isolation_1, isolation_2,
     race, race_other, ethnicity, sex, gender_identity, age, age_cat, bmi,
     education, insurance_type, oth_insurance_provider, marriage, finance,
     home_ownership, home_ownership_oth, employ_status, employ_status_other,
@@ -110,6 +110,14 @@ Transitions <- Transitions |>
       isolation_cat == 3 ~ "Low",   # Not Isolated
       isolation_cat %in% c(0, 1, 2) ~ "High",  # All other categories
       TRUE ~ NA_character_
+    ),
+    isolation_item_communicate = factor(
+      isolation_1,
+      levels = c(6, 5, 4, 3, 2, 1, 0)
+    ),
+    isolation_item_visit = factor(
+      isolation_2,
+      levels = c(6, 5, 4, 3, 2, 1, 0)
     ),
     
     # Demographics
@@ -250,7 +258,7 @@ Transitions <- Transitions |>
     across(ends_with("_d"), ~ factor(.x, levels = c("Low", "High")))
   )
 
-
+str(Transitions)
 
 
 # Load Biomarker Data
