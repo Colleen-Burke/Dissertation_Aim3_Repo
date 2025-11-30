@@ -119,6 +119,16 @@ Transitions <- Transitions |>
       isolation_2,
       levels = c(6, 5, 4, 3, 2, 1, 0)
     ),
+    isolation_item_communicate_d = case_when(
+      isolation_item_communicate == 6 ~ "Low",
+      isolation_item_communicate %in% c(5, 4, 3, 2, 1, 0) ~ "High",
+      TRUE ~ NA_character_
+    ),
+    isolation_item_visit_d = case_when(
+      isolation_item_visit %in% c(6, 5, 4, 3, 2) ~ "Low",
+      isolation_item_visit %in% c(1, 0) ~ "High",
+      TRUE ~ NA_character_
+    ),
     
     # Demographics
     race_f = factor(

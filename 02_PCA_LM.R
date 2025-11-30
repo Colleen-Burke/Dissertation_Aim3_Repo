@@ -48,6 +48,21 @@ lm_2si2 <- lm(PC2 ~ isolation_cat_nominal, data = analysis_df)
 summary(lm_2si2)
 
 
+# ---------- Social Isolation Item (Communicate) Models ----------
+lm_siic1 <- lm(PC1 ~ isolation_item_communicate, data = analysis_df)
+summary(lm_siic1)
+
+lm_siic2 <- lm(PC2 ~ isolation_item_communicate, data = analysis_df)
+summary(lm_siic2)
+
+
+# ---------- Social Isolation Item (Visit) Models ----------
+lm_siiv1 <- lm(PC1 ~ isolation_item_visit, data = analysis_df)
+summary(lm_siiv1)
+
+lm_siiv2 <- lm(PC2 ~ isolation_item_visit, data = analysis_df)
+summary(lm_siiv2)
+
 
 
 # ---------- Social Relationships Dichotomized Models ----------
@@ -71,7 +86,20 @@ summary(lm_sid1)
 lm_sid2 <- lm(PC2 ~ isolation_cat_d, data = analysis_df)
 summary(lm_sid2)
 
+# ---------- Social Isolation Item (Communicate) Dichotomized Models ----------
+lm_siicd1 <- lm(PC1 ~ isolation_item_communicate_d, data = analysis_df)
+summary(lm_siicd1)
 
+lm_siicd2 <- lm(PC2 ~ isolation_item_communicate_d, data = analysis_df)
+summary(lm_siicd2)
+
+
+# ---------- Social Isolation Item (Visit) Dichotomized Models ----------
+lm_siivd1 <- lm(PC1 ~ isolation_item_visit_d, data = analysis_df)
+summary(lm_siivd1)
+
+lm_siivd2 <- lm(PC2 ~ isolation_item_visit_d, data = analysis_df)
+summary(lm_siivd2)
 
 
 

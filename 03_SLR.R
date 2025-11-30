@@ -4,10 +4,11 @@ library(here)
 
 # Define exposures and outcomes
 exposures <- c(
-  "social_relationships_ordinal", "social_relationships_nominal", "social_relationships_d", 
-  "social_activities_ordinal", "social_activities_nominal", "social_activities_d", 
-  "isolation_cat_ordinal", "isolation_cat_nominal", "isolation_cat_d", 
-  "race_f", "race_dichotomized"
+  "social_relationships_ordinal", "social_relationships_nominal", 
+  "social_relationships_d", "social_activities_ordinal", 
+  "social_activities_nominal", "social_activities_d", "isolation_cat_ordinal", 
+  "isolation_cat_nominal", "isolation_cat_d", "isolation_item_communicate",
+  "isolation_item_visit", "race_f", "race_dichotomized"
 )
 
 outcomes <- c(
