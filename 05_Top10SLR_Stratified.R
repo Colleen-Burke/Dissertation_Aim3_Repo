@@ -1,21 +1,11 @@
-# stratified_SLM_by_race.R
-# Run simple linear models stratified by race_dichotomized
-
 library(tidyverse)
 library(broom)
 library(here)
 library(dplyr)
 
-#-----------------------------
-# 1. Load data
-#-----------------------------
 top10_analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
-# If you ever switch to CSV:
-# top10_analysis_df <- read_csv(here("analysis_df.csv"))
 
-#-----------------------------
-# 2. Define exposures & outcomes
-#-----------------------------
+#--- Define exposures & outcomes -----------------------------------------------
 exposures <- c(
   "isolation_cat_ordinal", "isolation_cat_nominal", 
   "isolation_cat_d", "isolation_item_visit", 
@@ -36,19 +26,13 @@ valid_outcomes  <- intersect(outcomes,  names(top10_analysis_df))
 print(setdiff(exposures, valid_exposures))
 print(setdiff(outcomes,  valid_outcomes))
 
-#-----------------------------
-# 3. Create all exposure–outcome pairs
-#-----------------------------
+#--- Create all exposure–outcome pairs -----------------------------------------
 model_grid <- expand_grid(
   exposure = valid_exposures,
   outcome  = valid_outcomes
 )
 
-#-----------------------------
-# 4. Fit models stratified by race_dichotomized
-#-----------------------------
-# This fits: outcome ~ exposure within each level of race_dichotomized
-
+#--- Fit models stratified by race_dichotomized --------------------------------
 model_results_strat <- model_grid %>%
   mutate(
     results = map2(exposure, outcome, \(x, y) {
@@ -79,9 +63,7 @@ model_results_strat <- model_grid %>%
   select(results) %>%
   unnest(results)
 
-#-----------------------------
-# 5. Keep exposure term only & tidy summary
-#-----------------------------
+#--- Keep exposure term only & tidy summary ------------------------------------
 top10_SLM_strat_summary <- model_results_strat %>%
   filter(term != "(Intercept)") %>%
   select(
@@ -97,14 +79,10 @@ top10_SLM_strat_summary <- model_results_strat %>%
 
 print(as.data.frame(top10_SLM_strat_summary))
 
-#-----------------------------
-# 6. Save results
-#-----------------------------
 write.csv(
   top10_SLM_strat_summary,
   here("top10_SLM_stratified_SLM_summary.csv"),
   row.names = FALSE
 )
 
-# Optionally also save as RDS
 # saveRDS(top10_SLM_strat_summary, here("top10_SLM_stratified_SLM_summary.rds"))
