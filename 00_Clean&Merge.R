@@ -69,10 +69,12 @@ Transitions <- Transitions |>
       labels = c("Excellent", "Very good", "Good", "Fair", "Poor"),
       ordered = FALSE
     ),
-    social_relationships_d = case_when(
+    social_relationships_d = factor(
+      case_when(
       social_relationships >= 3 ~ "High",  # Excellent, Very good, Good (5,4,3)
       social_relationships <= 2 ~ "Low",   # Fair, Poor (2,1)
-      TRUE ~ NA_character_
+      TRUE ~ NA_character_),
+      levels = c("High", "Low")
     ),
     
     social_activities_ordinal = factor(
@@ -87,10 +89,12 @@ Transitions <- Transitions |>
       labels = c("Excellent", "Very good", "Good", "Fair", "Poor"),
       ordered = FALSE
     ),
-    social_activities_d = case_when(
+    social_activities_d = factor(
+      case_when(
       social_activities >= 3 ~ "High",
       social_activities <= 2 ~ "Low",
-      TRUE ~ NA_character_
+      TRUE ~ NA_character_),
+    levels = c("High", "Low")
     ),
     
     # Isolation (with Not Isolated as reference)

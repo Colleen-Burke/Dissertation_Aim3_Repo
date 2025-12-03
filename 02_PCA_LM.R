@@ -1,4 +1,5 @@
-# Load Data
+library(here)
+
 analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 
 # ---------- Social Relationships Ordinal Models ----------
@@ -66,6 +67,12 @@ summary(lm_siiv2)
 
 
 # ---------- Social Relationships Dichotomized Models ----------
+analysis_df <- analysis_df |>
+  mutate(
+    social_relationships_d = factor(social_relationships_d,
+                                 levels = c("High", "Low"))
+  )
+
 lm_srd1 <- lm(PC1 ~ social_relationships_d, data = analysis_df)
 summary(lm_srd1)
 
@@ -73,6 +80,13 @@ lm_srd2 <- lm(PC2 ~ social_relationships_d, data = analysis_df)
 summary(lm_srd2)
 
 # ---------- Social Activities Dichotomized Models ----------
+analysis_df <- analysis_df |>
+  mutate(
+    social_activities_d = factor(social_activities_d,
+                                 levels = c("High", "Low"))
+  )
+
+
 lm_sad1 <- lm(PC1 ~ social_activities_d, data = analysis_df)
 summary(lm_sad1)
 
