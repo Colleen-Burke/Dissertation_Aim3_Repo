@@ -5,9 +5,11 @@ analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 # ---------- Social Relationships Ordinal Models ----------
 lm_sr1 <- lm(PC1 ~ social_relationships_ordinal, data = analysis_df)
 summary(lm_sr1)
+confint(lm_sr1)
 
 lm_sr2 <- lm(PC2 ~ social_relationships_ordinal, data = analysis_df)
 summary(lm_sr2)
+confint(lm_sr2)
 
 
 # ---------- Social Relationships Nominal Models ----------
@@ -44,6 +46,7 @@ summary(lm_si2)
 # ---------- Social Isolation Nominal Models ----------
 lm_2si1 <- lm(PC1 ~ isolation_cat_nominal, data = analysis_df)
 summary(lm_2si1)
+
 
 lm_2si2 <- lm(PC2 ~ isolation_cat_nominal, data = analysis_df)
 summary(lm_2si2)
@@ -96,9 +99,11 @@ summary(lm_sad2)
 # ---------- Social Isolation Dichotomized Models ----------
 lm_sid1 <- lm(PC1 ~ isolation_cat_d, data = analysis_df)
 summary(lm_sid1)
+confint(lm_sid1)
 
 lm_sid2 <- lm(PC2 ~ isolation_cat_d, data = analysis_df)
 summary(lm_sid2)
+confint(lm_sid2)
 
 # ---------- Social Isolation Item (Communicate) Dichotomized Models ----------
 lm_siicd1 <- lm(PC1 ~ isolation_item_communicate_d, data = analysis_df)
