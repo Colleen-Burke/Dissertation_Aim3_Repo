@@ -24,50 +24,62 @@ confint(lm_2sr2)
 # ---------- Social Activity Ordinal Models ----------
 lm_sa1 <- lm(PC1 ~ social_activities_ordinal, data = analysis_df)
 summary(lm_sa1)
+confint(lm_sa1)
 
 lm_sa2 <- lm(PC2 ~ social_activities_ordinal, data = analysis_df)
 summary(lm_sa2)
+confint(lm_sa2)
 
 
 # ---------- Social Activity Nominal Models ----------
 lm_2sa1 <- lm(PC1 ~ social_activities_nominal, data = analysis_df)
 summary(lm_2sa1)
+confint(lm_2sa1)
 
 lm_2sa2 <- lm(PC2 ~ social_activities_nominal, data = analysis_df)
 summary(lm_2sa2)
+confint(lm_2sa2)
 
 
 # ---------- Social Isolation Ordinal Models ----------
 lm_si1 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df)
 summary(lm_si1)
+confint(lm_si1)
 
 lm_si2 <- lm(PC2 ~ isolation_cat_ordinal, data = analysis_df)
 summary(lm_si2)
+confint(lm_si2)
 
 
 # ---------- Social Isolation Nominal Models ----------
 lm_2si1 <- lm(PC1 ~ isolation_cat_nominal, data = analysis_df)
 summary(lm_2si1)
+confint(lm_2si1)
 
 
 lm_2si2 <- lm(PC2 ~ isolation_cat_nominal, data = analysis_df)
 summary(lm_2si2)
+confint(lm_2si2)
 
 
 # ---------- Social Isolation Item (Communicate) Models ----------
 lm_siic1 <- lm(PC1 ~ isolation_item_communicate, data = analysis_df)
 summary(lm_siic1)
+confint(lm_siic1)
 
 lm_siic2 <- lm(PC2 ~ isolation_item_communicate, data = analysis_df)
 summary(lm_siic2)
+confint(lm_siic2)
 
 
 # ---------- Social Isolation Item (Visit) Models ----------
 lm_siiv1 <- lm(PC1 ~ isolation_item_visit, data = analysis_df)
 summary(lm_siiv1)
+confint(lm_siiv1)
 
 lm_siiv2 <- lm(PC2 ~ isolation_item_visit, data = analysis_df)
 summary(lm_siiv2)
+confint(lm_siiv2)
 
 
 
@@ -80,9 +92,11 @@ analysis_df <- analysis_df |>
 
 lm_srd1 <- lm(PC1 ~ social_relationships_d, data = analysis_df)
 summary(lm_srd1)
+confint(lm_srd1)
 
 lm_srd2 <- lm(PC2 ~ social_relationships_d, data = analysis_df)
 summary(lm_srd2)
+confint(lm_srd2)
 
 # ---------- Social Activities Dichotomized Models ----------
 analysis_df <- analysis_df |>
@@ -94,9 +108,12 @@ analysis_df <- analysis_df |>
 
 lm_sad1 <- lm(PC1 ~ social_activities_d, data = analysis_df)
 summary(lm_sad1)
+confint(lm_sad1)
 
 lm_sad2 <- lm(PC2 ~ social_activities_d, data = analysis_df)
 summary(lm_sad2)
+confint(lm_sad2)
+
 
 # ---------- Social Isolation Dichotomized Models ----------
 lm_sid1 <- lm(PC1 ~ isolation_cat_d, data = analysis_df)
@@ -110,17 +127,21 @@ confint(lm_sid2)
 # ---------- Social Isolation Item (Communicate) Dichotomized Models ----------
 lm_siicd1 <- lm(PC1 ~ isolation_item_communicate_d, data = analysis_df)
 summary(lm_siicd1)
+confint(lm_siicd1)
 
 lm_siicd2 <- lm(PC2 ~ isolation_item_communicate_d, data = analysis_df)
 summary(lm_siicd2)
+confint(lm_siicd2)
 
 
 # ---------- Social Isolation Item (Visit) Dichotomized Models ----------
 lm_siivd1 <- lm(PC1 ~ isolation_item_visit_d, data = analysis_df)
 summary(lm_siivd1)
+confint(lm_siivd1)
 
 lm_siivd2 <- lm(PC2 ~ isolation_item_visit_d, data = analysis_df)
 summary(lm_siivd2)
+confint(lm_siivd2)
 
 
 
@@ -153,7 +174,10 @@ lm_sid1_race1 <- lm(PC1 ~ isolation_cat_d, data = analysis_df_race1)
 lm_sid1_race2 <- lm(PC1 ~ isolation_cat_d, data = analysis_df_race2)
 
 summary(lm_sid1_race1)
+confint(lm_sid1_race1)
+
 summary(lm_sid1_race2)
+confint(lm_sid1_race2)
 
 
 #Ordinal models
@@ -161,12 +185,19 @@ lm_sif1_race1 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df_race1)
 lm_sif1_race2 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df_race2) 
 
 summary(lm_sif1_race1)
+confint(lm_sif1_race1)
+
 summary(lm_sif1_race2)
+confint(lm_sif1_race2)
 
 #Nominal models
 lm_2sif1_race1 <- lm(PC1 ~ isolation_cat_nominal, data = analysis_df_race1)
 lm_2sif1_race2 <- lm(PC1 ~ isolation_cat_nominal, data = analysis_df_race2) 
 
 summary(lm_2sif1_race1)
+confint(lm_2sif1_race1)
+
 summary(lm_2sif1_race2)
+confint(lm_2sif1_race2)
+
 
