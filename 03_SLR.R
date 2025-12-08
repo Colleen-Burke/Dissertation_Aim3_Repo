@@ -41,18 +41,20 @@ model_results <- model_grid |>
 SLM_summary <- model_results |> 
   filter(term != "(Intercept)") |>  # keep exposure term only
   select(exposure, outcome, term, estimate, std.error, statistic, p.value) |> 
+  mutate(
+    ci_lower = estimate - 1.96 * std.error,
+    ci_upper = estimate + 1.96 * std.error
+  ) |>
   arrange(p.value)
 
 # Preview top results
 print(SLM_summary)
 
-
-# View the top 30 results by smallest p-value
+# View the top 100 results by smallest p-value
 SLM_summary |> 
   arrange(p.value) |> 
   slice_head(n = 100) |> 
   print(n = 100)
-
 write.csv(SLM_summary, here("SLM_summary.csv"))
 
 #saveRDS(SLM_summary, here("SLM_summary.rds"))
