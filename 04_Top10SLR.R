@@ -44,7 +44,7 @@ model_results <- model_grid %>%
       exposure, outcome,
       ~ lm(as.formula(paste(.y, "~", .x)), data = top10_analysis_df)
     ),
-    tidy = map(model, broom::tidy)
+    tidy = map(model, broom::tidy, conf.int = TRUE, conf.level = 0.95)
   ) %>%
   select(exposure, outcome, tidy) %>%
   unnest(tidy)
@@ -52,7 +52,8 @@ model_results <- model_grid %>%
 # View summary table of results
 top10_SLM_summary <- model_results %>%
   filter(term != "(Intercept)") %>%  # keep exposure term only
-  select(exposure, outcome, term, estimate, std.error, statistic, p.value)
+  select(exposure, outcome, term, 
+        estimate, std.error, conf.low, conf.high, statistic, p.value)
 
 print(as.data.frame(top10_SLM_summary))
 
