@@ -15,9 +15,11 @@ confint(lm_sr2)
 # ---------- Social Relationships Nominal Models ----------
 lm_2sr1 <- lm(PC1 ~ social_relationships_nominal, data = analysis_df)
 summary(lm_2sr1)
+confint(lm_2sr1)
 
 lm_2sr2 <- lm(PC2 ~ social_relationships_nominal, data = analysis_df)
 summary(lm_2sr2)
+confint(lm_2sr2)
 
 # ---------- Social Activity Ordinal Models ----------
 lm_sa1 <- lm(PC1 ~ social_activities_ordinal, data = analysis_df)
