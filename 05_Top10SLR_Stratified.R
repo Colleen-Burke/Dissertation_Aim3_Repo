@@ -51,7 +51,7 @@ model_results_strat <- model_grid %>%
         group_by(race_dichotomized) %>%
         group_modify(\(.data, .key) {
           fit <- lm(reformulate(x, response = y), data = .data)
-          broom::tidy(fit)
+          broom::tidy(fit, conf.int = TRUE, conf.level = 0.95)
         }) %>%
         ungroup() %>%
         mutate(
@@ -73,6 +73,8 @@ top10_SLM_strat_summary <- model_results_strat %>%
     term,
     estimate,
     std.error,
+    conf.low,
+    conf.high,
     statistic,
     p.value
   )
