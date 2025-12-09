@@ -318,7 +318,7 @@ Transitions <- Transitions |>
     )
   )
 
-# Create Composite Item
+# Create Social Relationship/Activity Composite Item
 Transitions <- Transitions |>
   mutate(
     social_composite_sum = social_relationships_num + social_activities_num
@@ -330,6 +330,18 @@ table(Transitions$social_activities_num, useNA = "ifany")
 table(Transitions$social_composite_sum, useNA = "ifany")
 
 summary(Transitions$social_composite_sum)
+
+
+# Create Social Factor Variable
+Transitions <- Transitions |>
+  mutate(
+    social_factor = social_relationships_num + social_activities_num + 
+      isolation_score
+  )
+
+table(Transitions$social_factor, useNA = "ifany")
+summary(Transitions$social_factor)
+
 
 
 
