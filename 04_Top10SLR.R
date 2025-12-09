@@ -9,7 +9,7 @@ top10_analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 
 # what you wanted
 exposures <- c("isolation_cat_ordinal", "isolation_cat_nominal", 
-               "isolation_cat_d", "isolation_item_visit", 
+               "isolation_cat_d", "isolation_cat2_d", "isolation_item_visit", 
                "isolation_item_communicate", "isolation_item_visit_d", 
                "isolation_item_communicate_d")
 outcomes <- c(
