@@ -76,6 +76,13 @@ Transitions <- Transitions |>
       TRUE ~ NA_character_),
       levels = c("High", "Low")
     ),
+    social_relationships2_d = factor(
+      case_when(
+        social_relationships >= 4 ~ "High",  # Excellent, Very good, Good (5,4,3)
+        social_relationships <= 3 ~ "Low",   # Fair, Poor (2,1)
+        TRUE ~ NA_character_),
+      levels = c("High", "Low")
+    ),
     
     social_activities_ordinal = factor(
       social_activities,
@@ -96,6 +103,13 @@ Transitions <- Transitions |>
       TRUE ~ NA_character_),
     levels = c("High", "Low")
     ),
+    social_activities2_d = factor(
+      case_when(
+        social_activities >= 4 ~ "High",
+        social_activities <= 3 ~ "Low",
+        TRUE ~ NA_character_),
+      levels = c("High", "Low")
+    ),
     
     # Isolation (with Not Isolated as reference)
     isolation_cat_ordinal = factor(
@@ -113,6 +127,11 @@ Transitions <- Transitions |>
     isolation_cat_d = case_when(
       isolation_cat == 3 ~ "Low",   # Not Isolated
       isolation_cat %in% c(0, 1, 2) ~ "High",  # All other categories
+      TRUE ~ NA_character_
+    ),
+    isolation_cat2_d = case_when(
+      isolation_cat %in% c(3, 2) ~ "Low",   # Not Isolated
+      isolation_cat %in% c(0, 1) ~ "High",  # All other categories
       TRUE ~ NA_character_
     ),
     isolation_item_communicate = factor(
