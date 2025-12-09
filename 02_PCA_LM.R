@@ -248,3 +248,14 @@ summary(lm_2sif1_race2)
 confint(lm_2sif1_race2)
 
 
+# New Dichotomized models
+lm_sid1_new_race1 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race1)
+lm_sid1_new_race2 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race2)
+
+summary(lm_sid1_new_race1)
+confint(lm_sid1_new_race1)
+
+summary(lm_sid1_new_race2)
+confint(lm_sid1_new_race2)
+
+
