@@ -52,6 +52,25 @@ summary(lm_socialcomp2)
 confint(lm_socialcomp2)
 
 
+# ---------- Composite Social Dichotomized Models ----------
+library(dplyr)
+analysis_df <- analysis_df |> 
+  mutate(social_composite_d = case_when(
+    social_composite_sum %in% c(2, 3, 4, 5, 6, 7) ~ "Poor",   
+    social_composite_sum %in% c(8, 9, 10) ~ "Good",
+    TRUE ~ NA_character_
+  ))
+
+lm_socialcomp1_d <- lm(PC1 ~ social_composite_d, data = analysis_df)
+summary(lm_socialcomp1_d)
+confint(lm_socialcomp1_d)
+
+lm_socialcomp2_d <- lm(PC2 ~ social_composite_d, data = analysis_df)
+summary(lm_socialcomp2_d)
+confint(lm_socialcomp2_d)
+
+
+
 
 # ---------- Social Isolation Ordinal Models ----------
 lm_si1 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df)
@@ -269,5 +288,8 @@ confint(lm_sid1_new_race1)
 
 summary(lm_sid1_new_race2)
 confint(lm_sid1_new_race2)
+
+
+# Social Composite Stratified
 
 
