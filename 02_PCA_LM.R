@@ -41,6 +41,18 @@ summary(lm_2sa2)
 confint(lm_2sa2)
 
 
+
+# ---------- Composite Social Models ----------
+lm_socialcomp1 <- lm(PC1 ~ social_composite_sum, data = analysis_df)
+summary(lm_socialcomp1)
+confint(lm_socialcomp1)
+
+lm_socialcomp2 <- lm(PC2 ~ social_composite_sum, data = analysis_df)
+summary(lm_socialcomp2)
+confint(lm_socialcomp2)
+
+
+
 # ---------- Social Isolation Ordinal Models ----------
 lm_si1 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df)
 summary(lm_si1)
