@@ -98,6 +98,25 @@ lm_srd2 <- lm(PC2 ~ social_relationships_d, data = analysis_df)
 summary(lm_srd2)
 confint(lm_srd2)
 
+
+# ---------- Social Relationships New Dichotomized Models ----------
+analysis_df <- analysis_df |>
+  mutate(
+    social_relationships2_d = factor(social_relationships2_d,
+                                    levels = c("High", "Low"))
+  )
+
+lm_srd1_new <- lm(PC1 ~ social_relationships2_d, data = analysis_df)
+summary(lm_srd1_new)
+confint(lm_srd1_new)
+
+lm_srd2_new <- lm(PC2 ~ social_relationships2_d, data = analysis_df)
+summary(lm_srd2_new)
+confint(lm_srd2_new)
+
+
+
+
 # ---------- Social Activities Dichotomized Models ----------
 analysis_df <- analysis_df |>
   mutate(
