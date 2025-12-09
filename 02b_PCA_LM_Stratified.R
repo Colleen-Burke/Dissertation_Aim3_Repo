@@ -31,6 +31,33 @@ confint(lm_srd2_race2)
 
 
 
+#--- Social Activities Dichotomized and PC1 Stratified by Race ---------------------------------------
+lm_sad1_race1 <- lm(PC1 ~ social_activities_d, data = analysis_df_race1)
+lm_sad1_race2 <- lm(PC1 ~ social_activities_d, data = analysis_df_race2)
+
+summary(lm_sad1_race1)
+confint(lm_sad1_race1)
+
+summary(lm_sad1_race2)
+confint(lm_sad1_race2)
+
+
+
+#--- Social Activities Dichotomized and PC2 Stratified by Race ---------------------------------------
+lm_sad2_race1 <- lm(PC2 ~ social_activities_d, data = analysis_df_race1)
+lm_sad2_race2 <- lm(PC2 ~ social_activities_d, data = analysis_df_race2)
+
+summary(lm_sad2_race1)
+confint(lm_sad2_race1)
+
+summary(lm_sad2_race2)
+confint(lm_sad2_race2)
+
+
+
+
+
+
 #--- Social Isolation and PC1 Stratified by Race ---------------------------------------
 lm_sid1_race1 <- lm(PC1 ~ isolation_cat_d, data = analysis_df_race1)
 lm_sid1_race2 <- lm(PC1 ~ isolation_cat_d, data = analysis_df_race2)
