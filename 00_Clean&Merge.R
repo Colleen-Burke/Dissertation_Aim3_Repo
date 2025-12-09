@@ -324,8 +324,12 @@ Transitions <- Transitions |>
     social_composite_sum = social_relationships_num + social_activities_num
   )
 
+# Quality control check for NA's
+table(Transitions$social_relationships_num, useNA = "ifany")
+table(Transitions$social_activities_num, useNA = "ifany")
+table(Transitions$social_composite_sum, useNA = "ifany")
 
-
+summary(Transitions$social_composite_sum)
 
 
 
