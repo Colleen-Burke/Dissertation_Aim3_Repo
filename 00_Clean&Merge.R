@@ -318,6 +318,11 @@ Transitions <- Transitions |>
     )
   )
 
+# Create Composite Item
+Transitions <- Transitions |>
+  mutate(
+    social_composite_sum = social_relationships_num + social_activities_num
+  )
 
 
 
