@@ -2,12 +2,13 @@ library(here)
 
 analysis_df <- readRDS(here("Aim3_Data_full.rds"))
 
+
+#--- Data Cleaning -------------------------------------------------------------
 # Split the data by race
 analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
 analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
 
-
-#--- Social Relationships (New Dichot.) and PC1 Stratified by Race ---------------------------------------
+# Make High Social Relationships the Referent
 analysis_df_race1 <- analysis_df_race1 |>
   mutate(
     social_relationships2_d = factor(social_relationships2_d,
@@ -20,7 +21,21 @@ analysis_df_race2 <- analysis_df_race2 |>
                                      levels = c("High", "Low"))
   )
 
+# Make High Social Activities the Referent
+analysis_df_race1 <- analysis_df_race1 |>
+  mutate(
+    social_activities_d = factor(social_activities_d,
+                                     levels = c("High", "Low"))
+  )
 
+analysis_df_race2 <- analysis_df_race2 |>
+  mutate(
+    social_activities_d = factor(social_activities_d,
+                                     levels = c("High", "Low"))
+  )
+
+
+#--- Social Relationships (New Dichot.) and PC1 Stratified by Race ---------------------------------------
 lm_srd1_race1 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race1)
 lm_srd1_race2 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race2)
 
