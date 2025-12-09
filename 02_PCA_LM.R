@@ -2,6 +2,16 @@ library(here)
 
 analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 
+# ---------- Social Factor  Models ----------
+lm_sf1 <- lm(PC1 ~ social_factor, data = analysis_df)
+summary(lm_sf1)
+confint(lm_sf1)
+
+lm_sf2 <- lm(PC2 ~ social_factor, data = analysis_df)
+summary(lm_sf2)
+confint(lm_sf2)
+
+
 # ---------- Social Relationships Ordinal Models ----------
 lm_sr1 <- lm(PC1 ~ social_relationships_ordinal, data = analysis_df)
 summary(lm_sr1)
