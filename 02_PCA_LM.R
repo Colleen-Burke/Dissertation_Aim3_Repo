@@ -1,4 +1,5 @@
 library(here)
+library(dplyr)
 
 analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 
@@ -10,6 +11,24 @@ confint(lm_sf1)
 lm_sf2 <- lm(PC2 ~ social_factor, data = analysis_df)
 summary(lm_sf2)
 confint(lm_sf2)
+
+
+# ---------- Social Factor Dichotomous Models ----------
+analysis_df <- analysis_df |> 
+  mutate(social_factor_d = case_when(
+    social_factor %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10) ~ "Poor",   
+    social_factor %in% c(11, 12, 13, 14) ~ "Good",
+    TRUE ~ NA_character_
+  ))
+
+lm_sf1_d <- lm(PC1 ~ social_factor_d, data = analysis_df)
+summary(lm_sf1_d)
+confint(lm_sf1_d)
+
+lm_sf2_d <- lm(PC2 ~ social_factor_d, data = analysis_df)
+summary(lm_sf2_d)
+confint(lm_sf2_d)
+
 
 
 # ---------- Social Relationships Ordinal Models ----------
@@ -300,6 +319,77 @@ summary(lm_sid1_new_race2)
 confint(lm_sid1_new_race2)
 
 
-# Social Composite Stratified
+
+#--- Social Composite with PC1 Stratified by race ---
+# Split the data by race
+analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
+analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
+
+# Dichotomized models
+lm_sf1_race1 <- lm(PC1 ~ social_factor, data = analysis_df_race1)
+lm_sf1_race2 <- lm(PC1 ~ social_factor, data = analysis_df_race2)
+
+summary(lm_sf1_race1)
+confint(lm_sf1_race1)
+
+summary(lm_sf1_race2)
+confint(lm_sf1_race2)
+
+
+#--- Social Composite with PC2 Stratified by race ---
+# Split the data by race
+analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
+analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
+
+# Dichotomized models
+lm_sf2_race1 <- lm(PC2 ~ social_factor, data = analysis_df_race1)
+lm_sf2_race2 <- lm(PC2 ~ social_factor, data = analysis_df_race2)
+
+summary(lm_sf2_race1)
+confint(lm_sf2_race1)
+
+summary(lm_sf2_race2)
+confint(lm_sf2_race2)
+
+
+
+
+#--- Social Composite Dichotomous with PC1 Stratified by race ---
+# Split the data by race
+analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
+analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
+
+# Dichotomized models
+lm_sfd1_race1 <- lm(PC1 ~ social_factor_d, data = analysis_df_race1)
+lm_sfd1_race2 <- lm(PC1 ~ social_factor_d, data = analysis_df_race2)
+
+summary(lm_sfd1_race1)
+confint(lm_sfd1_race1)
+
+summary(lm_sfd1_race2)
+confint(lm_sfd1_race2)
+
+
+
+#--- Social Composite Dichotomous with PC2 Stratified by race ---
+# Split the data by race
+analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
+analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
+
+# Dichotomized models
+lm_sfd2_race1 <- lm(PC2 ~ social_factor_d, data = analysis_df_race1)
+lm_sfd2_race2 <- lm(PC2 ~ social_factor_d, data = analysis_df_race2)
+
+summary(lm_sfd2_race1)
+confint(lm_sfd2_race1)
+
+summary(lm_sfd2_race2)
+confint(lm_sfd2_race2)
+
+
+
+
+
+
 
 
