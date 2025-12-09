@@ -293,6 +293,36 @@ Transitions <- Transitions |>
 
 str(Transitions)
 
+# Composite Social Relationships/Activites Item
+
+library(dplyr)
+
+Transitions <- Transitions |>
+  mutate(
+    social_relationships_num = case_when(
+      social_relationships_nominal == "Excellent" ~ 5,
+      social_relationships_nominal == "Very good" ~ 4,
+      social_relationships_nominal == "Good"      ~ 3,
+      social_relationships_nominal == "Fair"      ~ 2,
+      social_relationships_nominal == "Poor"      ~ 1,
+      TRUE ~ NA_real_
+    ),
+    
+    social_activities_num = case_when(
+      social_activities_nominal == "Excellent" ~ 5,
+      social_activities_nominal == "Very good" ~ 4,
+      social_activities_nominal == "Good"      ~ 3,
+      social_activities_nominal == "Fair"      ~ 2,
+      social_activities_nominal == "Poor"      ~ 1,
+      TRUE ~ NA_real_
+    )
+  )
+
+
+
+
+
+
 
 # Load Biomarker Data
 Immune <- read.csv(here("Biomarker_Data.csv"))
