@@ -2,7 +2,7 @@ library(tidyverse)
 library(broom)
 library(here)
 
-analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
+analysis_df <- readRDS(here("Aim3_Data_full.rds"))
 
 
 # Define exposures and outcomes
