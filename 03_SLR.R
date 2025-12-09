@@ -8,11 +8,13 @@ analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 # Define exposures and outcomes
 exposures <- c(
   "social_relationships_ordinal", "social_relationships_nominal", 
-  "social_relationships_d", "social_activities_ordinal", 
-  "social_activities_nominal", "social_activities_d", "isolation_cat_ordinal", 
-  "isolation_cat_nominal", "isolation_cat_d", "isolation_item_communicate",
-  "isolation_item_visit", "isolation_item_communicate_d",
-  "isolation_item_visit_d", "race_f", "race_dichotomized"
+  "social_relationships_d", "social_relationships2_d", 
+  "social_activities_ordinal", "social_activities_nominal", 
+  "social_activities_d", "social_activities2_d", "isolation_cat_ordinal", 
+  "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
+  "isolation_item_communicate", "isolation_item_visit", 
+  "isolation_item_communicate_d", "isolation_item_visit_d", "race_f", 
+  "race_dichotomized"
 )
 
 outcomes <- c(
@@ -53,8 +55,8 @@ print(SLM_summary)
 # View the top 100 results by smallest p-value
 SLM_summary |> 
   arrange(p.value) |> 
-  slice_head(n = 100) |> 
-  print(n = 100)
+  slice_head(n = 150) |> 
+  print(n = 150)
 write.csv(SLM_summary, here("SLM_summary.csv"))
 
 #saveRDS(SLM_summary, here("SLM_summary.rds"))
