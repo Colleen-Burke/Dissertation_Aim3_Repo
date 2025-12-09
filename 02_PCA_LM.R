@@ -388,6 +388,7 @@ confint(lm_sfd2_race2)
 
 
 
+saveRDS(analysis_df, "Aim3_Data_full.rds")
 
 
 
