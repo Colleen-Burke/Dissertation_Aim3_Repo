@@ -53,7 +53,7 @@ model_results <- model_grid %>%
 top10_SLM_summary <- model_results %>%
   filter(term != "(Intercept)") %>%  # keep exposure term only
   select(exposure, outcome, term, 
-        estimate, std.error, conf.low, conf.high, statistic, p.value)
+        estimate, std.error, statistic, conf.low, conf.high, p.value)
 
 print(as.data.frame(top10_SLM_summary))
 
