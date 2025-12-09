@@ -115,8 +115,6 @@ summary(lm_srd2_new)
 confint(lm_srd2_new)
 
 
-
-
 # ---------- Social Activities Dichotomized Models ----------
 analysis_df <- analysis_df |>
   mutate(
@@ -132,6 +130,24 @@ confint(lm_sad1)
 lm_sad2 <- lm(PC2 ~ social_activities_d, data = analysis_df)
 summary(lm_sad2)
 confint(lm_sad2)
+
+
+# ---------- Social Activities New Dichotomized Models ----------
+analysis_df <- analysis_df |>
+  mutate(
+    social_activities2_d = factor(social_activities2_d,
+                                 levels = c("High", "Low"))
+  )
+
+
+lm_sad1_new <- lm(PC1 ~ social_activities2_d, data = analysis_df)
+summary(lm_sad1_new)
+confint(lm_sad1_new)
+
+lm_sad2_new <- lm(PC2 ~ social_activities2_d, data = analysis_df)
+summary(lm_sad2_new)
+confint(lm_sad2_new)
+
 
 
 # ---------- Social Isolation Dichotomized Models ----------
