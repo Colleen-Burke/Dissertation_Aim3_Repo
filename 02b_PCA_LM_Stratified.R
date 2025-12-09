@@ -8,6 +8,19 @@ analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
 
 
 #--- Social Relationships (New Dichot.) and PC1 Stratified by Race ---------------------------------------
+analysis_df_race1 <- analysis_df_race1 |>
+  mutate(
+    social_relationships2_d = factor(social_relationships2_d,
+                                     levels = c("High", "Low"))
+  )
+
+analysis_df_race2 <- analysis_df_race2 |>
+  mutate(
+    social_relationships2_d = factor(social_relationships2_d,
+                                     levels = c("High", "Low"))
+  )
+
+
 lm_srd1_race1 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race1)
 lm_srd1_race2 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race2)
 
