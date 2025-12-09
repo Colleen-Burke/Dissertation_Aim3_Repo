@@ -73,9 +73,9 @@ top10_SLM_strat_summary <- model_results_strat %>%
     term,
     estimate,
     std.error,
+    statistic,
     conf.low,
     conf.high,
-    statistic,
     p.value
   )
 
