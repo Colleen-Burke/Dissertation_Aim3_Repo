@@ -78,8 +78,8 @@ Transitions <- Transitions |>
     ),
     social_relationships2_d = factor(
       case_when(
-        social_relationships >= 4 ~ "High",  # Excellent, Very good, Good (5,4,3)
-        social_relationships <= 3 ~ "Low",   # Fair, Poor (2,1)
+        social_relationships >= 4 ~ "High",  # Excellent, Very good (5,4)
+        social_relationships <= 3 ~ "Low",   # Good, Fair, Poor (3,2,1)
         TRUE ~ NA_character_),
       levels = c("High", "Low")
     ),
@@ -105,8 +105,8 @@ Transitions <- Transitions |>
     ),
     social_activities2_d = factor(
       case_when(
-        social_activities >= 4 ~ "High",
-        social_activities <= 3 ~ "Low",
+        social_activities >= 4 ~ "High",   # Excellent, Very good (5,4)
+        social_activities <= 3 ~ "Low",    # Good, Fair, Poor (3,2,1)
         TRUE ~ NA_character_),
       levels = c("High", "Low")
     ),
