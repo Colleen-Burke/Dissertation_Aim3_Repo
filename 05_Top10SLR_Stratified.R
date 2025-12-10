@@ -3,14 +3,18 @@ library(broom)
 library(here)
 library(dplyr)
 
-top10_analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
+top10_analysis_df <- readRDS(here("Aim3_Data_full.rds"))
 
 #--- Define exposures & outcomes -----------------------------------------------
 exposures <- c(
-  "isolation_cat_ordinal", "isolation_cat_nominal", 
-  "isolation_cat_d", "isolation_cat2_d", "isolation_item_visit", 
-  "isolation_item_communicate", "isolation_item_visit_d", 
-  "isolation_item_communicate_d"
+  "social_relationships_ordinal", "social_relationships_nominal", 
+  "social_relationships_d", "social_relationships2_d", 
+  "social_activities_ordinal", "social_activities_nominal", 
+  "social_activities_d", "social_activities2_d", "isolation_cat_ordinal", 
+  "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
+  "isolation_item_communicate", "isolation_item_visit", 
+  "isolation_item_communicate_d", "isolation_item_visit_d", "social_factor", 
+  "social_factor_d", "social_composite_sum"
 )
 
 outcomes <- c(
