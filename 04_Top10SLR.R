@@ -4,14 +4,19 @@ library(here)
 library(dplyr)
 
 
-top10_analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
-#top10_analysis_df <- read_csv(here("analysis_df.csv"))
+top10_analysis_df <- readRDS(here("Aim3_Data_full.rds"))
+#top10_analysis_df <- read_csv(here("Aim3_Data_full.rds"))
 
 # what you wanted
-exposures <- c("isolation_cat_ordinal", "isolation_cat_nominal", 
-               "isolation_cat_d", "isolation_cat2_d", "isolation_item_visit", 
-               "isolation_item_communicate", "isolation_item_visit_d", 
-               "isolation_item_communicate_d")
+exposures <- c("social_relationships_ordinal", "social_relationships_nominal", 
+               "social_relationships_d", "social_relationships2_d", 
+               "social_activities_ordinal", "social_activities_nominal", 
+               "social_activities_d", "social_activities2_d", "isolation_cat_ordinal", 
+               "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
+               "isolation_item_communicate", "isolation_item_visit", 
+               "isolation_item_communicate_d", "isolation_item_visit_d", "race_f", 
+               "race_dichotomized", "social_factor", "social_factor_d", 
+               "social_composite_sum")
 outcomes <- c(
   "IL_10", "IFN_gamma", "IL_12p70", "IFN_alpha2", "CX3CL1",
   "IFN_lambda1", "IFN_lambda2_3", "sTREM_1", "sRAGE", "GM_CSF"
