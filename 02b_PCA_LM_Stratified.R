@@ -35,9 +35,11 @@ analysis_df_race2 <- analysis_df_race2 |>
   )
 
 
-#--- Social Relationships (New Dichot.) and PC1 Stratified by Race ---------------------------------------
-lm_srd1_race1 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race1)
-lm_srd1_race2 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race2)
+
+
+#--- Social Relationships (Dichot.) and PC1 Stratified by Race ---------------------------------------
+lm_srd1_race1 <- lm(PC1 ~ social_relationships_d, data = analysis_df_race1)
+lm_srd1_race2 <- lm(PC1 ~ social_relationships_d, data = analysis_df_race2)
 
 summary(lm_srd1_race1)
 confint(lm_srd1_race1)
@@ -47,15 +49,40 @@ confint(lm_srd1_race2)
 
 
 
-#--- Social Relationships (New Dichot.) and PC2 Stratified by Race ---------------------------------------
-lm_srd2_race1 <- lm(PC2 ~ social_relationships2_d, data = analysis_df_race1)
-lm_srd2_race2 <- lm(PC2 ~ social_relationships2_d, data = analysis_df_race2)
+#--- Social Relationships (Dichot.) and PC2 Stratified by Race ---------------------------------------
+lm_srd2_race1 <- lm(PC2 ~ social_relationships_d, data = analysis_df_race1)
+lm_srd2_race2 <- lm(PC2 ~ social_relationships_d, data = analysis_df_race2)
 
 summary(lm_srd2_race1)
 confint(lm_srd2_race1)
 
 summary(lm_srd2_race2)
 confint(lm_srd2_race2)
+
+
+
+
+#--- Social Relationships (New Dichot.) and PC1 Stratified by Race ---------------------------------------
+lm_srd1_new_race1 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race1)
+lm_srd1_new_race2 <- lm(PC1 ~ social_relationships2_d, data = analysis_df_race2)
+
+summary(lm_srd1_new_race1)
+confint(lm_srd1_new_race1)
+
+summary(lm_srd1_new_race2)
+confint(lm_srd1_new_race2)
+
+
+
+#--- Social Relationships (New Dichot.) and PC2 Stratified by Race ---------------------------------------
+lm_srd2_new_race1 <- lm(PC2 ~ social_relationships2_d, data = analysis_df_race1)
+lm_srd2_new_race2 <- lm(PC2 ~ social_relationships2_d, data = analysis_df_race2)
+
+summary(lm_srd2_new_race1)
+confint(lm_srd2_new_race1)
+
+summary(lm_srd2_new_race2)
+confint(lm_srd2_new_race2)
 
 
 
