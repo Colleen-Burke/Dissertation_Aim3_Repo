@@ -24,14 +24,14 @@ outcomes_PC1 <- c(
 
 # keep only the ones that actually exist in the data
 valid_exposures <- intersect(exposures, names(PC1top10_analysis_df))
-valid_outcomes  <- intersect(outcomes_PC1,  names(PC1top10_analysis_df))
+valid_outcomes_PC1  <- intersect(outcomes_PC1,  names(PC1top10_analysis_df))
 
 # (optional) tell yourself what was missing
 setdiff(exposures, valid_exposures)
-setdiff(outcomes_PC1,  valid_outcomes)
+setdiff(outcomes_PC1,  valid_outcomes_PC1)
 
-model_grid <- expand_grid(exposure = valid_exposures,
-                          outcome_PC1  = valid_outcomes) |>
+PC1model_grid <- expand_grid(exposure = valid_exposures,
+                          outcome_PC1  = valid_outcomes_PC1) |>
   mutate(
     data = map2(exposure, outcome_PC1, ~
                   PC1top10_analysis_df |>
@@ -40,10 +40,10 @@ model_grid <- expand_grid(exposure = valid_exposures,
     )
   )
 
-view(model_grid)
+view(PC1model_grid)
 
 # Run each simple linear model
-model_results <- model_grid %>%
+PC1model_results <- PC1model_grid %>%
   mutate(
     model = map2(
       exposure, outcome_PC1,
@@ -55,7 +55,7 @@ model_results <- model_grid %>%
   unnest(tidy)
 
 # View summary table of results
-PC1top10_SLM_summary <- model_results %>%
+PC1top10_SLM_summary <- PC1model_results %>%
   filter(term != "(Intercept)") %>%  # keep exposure term only
   select(exposure, outcome_PC1, term, 
         estimate, std.error, statistic, conf.low, conf.high, p.value)
