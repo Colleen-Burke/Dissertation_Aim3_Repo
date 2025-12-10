@@ -3,7 +3,7 @@ library(broom)
 library(here)
 library(dplyr)
 
-top10_analysis_df <- readRDS(here("Aim3_Data_full.rds"))
+PC1top10_analysis_df <- readRDS(here("Aim3_Data_full.rds"))
 
 #--- Define exposures & outcomes -----------------------------------------------
 exposures <- c(
@@ -17,31 +17,31 @@ exposures <- c(
   "social_factor_d", "social_composite_sum"
 )
 
-outcomes <- c(
+outcomes_PC1 <- c(
   "IL_10", "IFN_gamma", "IL_12p70", "IFN_alpha2", "CX3CL1",
   "IFN_lambda1", "IFN_lambda2_3", "sTREM_1", "sRAGE", "GM_CSF"
 )
 
 # Keep only variables that exist in the data
-valid_exposures <- intersect(exposures, names(top10_analysis_df))
-valid_outcomes  <- intersect(outcomes,  names(top10_analysis_df))
+valid_exposures <- intersect(exposures, names(PC1top10_analysis_df))
+valid_outcomes_PC1  <- intersect(outcomes_PC1,  names(PC1top10_analysis_df))
 
 # Optional: see what was missing
 print(setdiff(exposures, valid_exposures))
-print(setdiff(outcomes,  valid_outcomes))
+print(setdiff(outcomes_PC1,  valid_outcomes_PC1))
 
 #--- Create all exposure–outcome pairs -----------------------------------------
-model_grid <- expand_grid(
+PC1model_grid <- expand_grid(
   exposure = valid_exposures,
-  outcome  = valid_outcomes
+  outcome_PC1  = valid_outcomes_PC1
 )
 
 #--- Fit models stratified by race_dichotomized --------------------------------
-model_results_strat <- model_grid %>%
+PC1model_results_strat <- PC1model_grid %>%
   mutate(
-    results = map2(exposure, outcome, \(x, y) {
+    PC1results = map2(exposure, outcome_PC1, \(x, y) {
       # Keep only needed variables and drop missing
-      df <- top10_analysis_df %>%
+      df <- PC1top10_analysis_df %>%
         select(race_dichotomized, all_of(x), all_of(y)) %>%
         drop_na()
       
@@ -60,20 +60,20 @@ model_results_strat <- model_grid %>%
         ungroup() %>%
         mutate(
           exposure = x,
-          outcome  = y
+          outcome_PC1  = y
         )
     })
   ) %>%
-  select(results) %>%
-  unnest(results)
+  select(PC1results) %>%
+  unnest(PC1results)
 
 #--- Keep exposure term only & tidy summary ------------------------------------
-top10_SLM_strat_summary <- model_results_strat %>%
+PC1top10_SLM_strat_summary <- PC1model_results_strat %>%
   filter(term != "(Intercept)") %>%
   select(
     race_dichotomized,
     exposure,
-    outcome,
+    outcome_PC1,
     term,
     estimate,
     std.error,
@@ -83,12 +83,12 @@ top10_SLM_strat_summary <- model_results_strat %>%
     p.value
   )
 
-print(as.data.frame(top10_SLM_strat_summary))
+print(as.data.frame(PC1top10_SLM_strat_summary))
 
 write.csv(
-  top10_SLM_strat_summary,
-  here("top10_SLM_stratified_SLM_summary.csv"),
+  PC1top10_SLM_strat_summary,
+  here("PC1top10_SLM_stratified_SLM_summary.csv"),
   row.names = FALSE
 )
 
-# saveRDS(top10_SLM_strat_summary, here("top10_SLM_stratified_SLM_summary.rds"))
+# saveRDS(PC1top10_SLM_strat_summary, here("PC1top10_SLM_stratified_SLM_summary.rds"))
