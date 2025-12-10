@@ -11,6 +11,19 @@ analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
 # Make High Social Relationships the Referent
 analysis_df_race1 <- analysis_df_race1 |>
   mutate(
+    social_relationships_d = factor(social_relationships_d,
+                                     levels = c("High", "Low"))
+  )
+
+analysis_df_race2 <- analysis_df_race2 |>
+  mutate(
+    social_relationships_d = factor(social_relationships_d,
+                                     levels = c("High", "Low"))
+  )
+
+# Make High Social Relationships (New) the Referent
+analysis_df_race1 <- analysis_df_race1 |>
+  mutate(
     social_relationships2_d = factor(social_relationships2_d,
                                      levels = c("High", "Low"))
   )
@@ -34,6 +47,18 @@ analysis_df_race2 <- analysis_df_race2 |>
                                      levels = c("High", "Low"))
   )
 
+# Make High Social Activities (New) the Referent
+analysis_df_race1 <- analysis_df_race1 |>
+  mutate(
+    social_activities2_d = factor(social_activities2_d,
+                                 levels = c("High", "Low"))
+  )
+
+analysis_df_race2 <- analysis_df_race2 |>
+  mutate(
+    social_activities2_d = factor(social_activities2_d,
+                                 levels = c("High", "Low"))
+  )
 
 
 
@@ -110,6 +135,29 @@ confint(lm_sad2_race2)
 
 
 
+#--- Social Activities (New Dichotomized) and PC1 Stratified by Race ---------------------------------------
+lm_sad1_new_race1 <- lm(PC1 ~ social_activities2_d, data = analysis_df_race1)
+lm_sad1_new_race2 <- lm(PC1 ~ social_activities2_d, data = analysis_df_race2)
+
+summary(lm_sad1_new_race1)
+confint(lm_sad1_new_race1)
+
+summary(lm_sad1_new_race2)
+confint(lm_sad1_new_race2)
+
+
+
+#--- Social Activities (New Dichotomized) and PC2 Stratified by Race ---------------------------------------
+lm_sad2_new_race1 <- lm(PC2 ~ social_activities2_d, data = analysis_df_race1)
+lm_sad2_new_race2 <- lm(PC2 ~ social_activities2_d, data = analysis_df_race2)
+
+summary(lm_sad2_new_race1)
+confint(lm_sad2_new_race1)
+
+summary(lm_sad2_new_race2)
+confint(lm_sad2_new_race2)
+
+
 
 
 
@@ -135,6 +183,27 @@ summary(lm_sid2_race2)
 confint(lm_sid2_race2)
 
 
+
+#--- Social Isolation (New) and PC1 Stratified by Race ---------------------------------------
+lm_sid1_new_race1 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race1)
+lm_sid1_new_race2 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race2)
+
+summary(lm_sid1_new_race1)
+confint(lm_sid1_new_race1)
+
+summary(lm_sid1_new_race2)
+confint(lm_sid1_new_race2)
+
+
+#--- Social Isolation (New) and PC2 Stratified by Race ---------------------------------------
+lm_sid2_new_race1 <- lm(PC2 ~ isolation_cat2_d, data = analysis_df_race1)
+lm_sid2_new_race2 <- lm(PC2 ~ isolation_cat2_d, data = analysis_df_race2)
+
+summary(lm_sid2_new_race1)
+confint(lm_sid2_new_race1)
+
+summary(lm_sid2_new_race2)
+confint(lm_sid2_new_race2)
 
 
 
