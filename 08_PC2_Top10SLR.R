@@ -18,7 +18,7 @@ exposures <- c("social_relationships_ordinal", "social_relationships_nominal",
                "race_dichotomized", "social_factor", "social_factor_d", 
                "social_composite_sum")
 outcomes_PC2 <- c(
-  "TGF_beta1", "VEGF", "IL_18", "VILIP_1", "sRAGE", "sTREM_1", "CX3CL", "IL_6",
+  "TGF_beta1", "VEGF", "IL_18", "VILIP_1", "sRAGE", "sTREM_1", "CX3CL1", "IL_6",
   "IL_10", "IL_12p70"
 )
 
