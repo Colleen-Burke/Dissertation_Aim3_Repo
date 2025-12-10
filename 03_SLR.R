@@ -4,6 +4,7 @@ library(here)
 
 analysis_df <- readRDS(here("Aim3_Data_full.rds"))
 
+#names(analysis_df)
 
 # Define exposures and outcomes
 exposures <- c(
@@ -14,7 +15,8 @@ exposures <- c(
   "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
   "isolation_item_communicate", "isolation_item_visit", 
   "isolation_item_communicate_d", "isolation_item_visit_d", "race_f", 
-  "race_dichotomized"
+  "race_dichotomized", "social_factor", "social_factor_d", 
+  "social_composite_sum"
 )
 
 outcomes <- c(
