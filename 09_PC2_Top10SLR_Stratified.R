@@ -18,7 +18,7 @@ exposures <- c(
 )
 
 outcomes_PC2 <- c(
-  "TGF_beta1", "VEGF", "IL_18", "VILIP_1", "sRAGE", "sTREM_1", "CX3CL", "IL_6",
+  "TGF_beta1", "VEGF", "IL_18", "VILIP_1", "sRAGE", "sTREM_1", "CX3CL1", "IL_6",
   "IL_10", "IL_12p70"
 )
 
