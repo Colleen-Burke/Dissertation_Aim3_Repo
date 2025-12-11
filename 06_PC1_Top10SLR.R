@@ -7,6 +7,15 @@ library(dplyr)
 PC1top10_analysis_df <- readRDS(here("Aim3_Data_full.rds"))
 #PC1top10_analysis_df <- read_csv(here("Aim3_Data_full.rds"))
 
+PC1top10_analysis_df <- PC1top10_analysis_df |>
+  mutate(
+    social_activities2_d = factor(social_activities2_d,
+                                 levels = c("High", "Low")),
+    social_relationships2_d = factor(social_relationships2_d,
+                                     levels = c("High", "Low"))
+  )
+
+
 # what you wanted
 exposures <- c("social_relationships_ordinal", "social_relationships_nominal", 
                "social_relationships_d", "social_relationships2_d", 
