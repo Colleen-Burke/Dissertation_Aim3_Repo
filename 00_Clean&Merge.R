@@ -335,12 +335,12 @@ summary(Transitions$social_function_num)
 # Create Social Factor Variable
 Transitions <- Transitions |>
   mutate(
-    social_factor_num = social_relationships_num + social_activities_num + 
+    social_health_num = social_relationships_num + social_activities_num + 
       isolation_score
   )
 
-table(Transitions$social_factor_num, useNA = "ifany")
-summary(Transitions$social_factor_num)
+table(Transitions$social_health_num, useNA = "ifany")
+summary(Transitions$social_health_num)
 
 
 
