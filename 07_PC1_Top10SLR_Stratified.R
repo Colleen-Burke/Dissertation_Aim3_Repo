@@ -23,7 +23,8 @@ exposures <- c(
   "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
   "isolation_item_communicate", "isolation_item_visit", "isolation_score",
   "isolation_item_communicate_d", "isolation_item_visit_d", "social_health_num", 
-  "social_health_d", "social_function_num", "social_function_d"
+  "social_health_d", "social_function_num", "social_function_d", 
+  "social_health2_d", "social_function2_d"
 )
 
 outcomes_PC1 <- c(

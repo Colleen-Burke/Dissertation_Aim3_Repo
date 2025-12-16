@@ -25,7 +25,8 @@ exposures <- c("social_relationships_ordinal", "social_relationships_nominal",
                "isolation_item_communicate", "isolation_item_visit", 
                "isolation_item_communicate_d", "isolation_item_visit_d", "race_f", 
                "race_dichotomized", "social_health_num", "social_health_d", 
-               "social_function_num", "social_function_d", "isolation_score")
+               "social_function_num", "social_function_d", "isolation_score",
+               "social_function2_d", "social_health2_d")
 outcomes_PC1 <- c(
   "IL_10", "IFN_gamma", "IL_12p70", "IFN_alpha2", "CX3CL1",
   "IFN_lambda1", "IFN_lambda2_3", "sTREM_1", "sRAGE", "GM_CSF"

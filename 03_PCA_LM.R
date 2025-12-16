@@ -30,6 +30,22 @@ summary(lm_sh2_d)
 confint(lm_sh2_d)
 
 
+# ---------- Social Health Factor (New) Dichotomous Models ----------
+analysis_df <- analysis_df |> 
+  mutate(social_health2_d = case_when(
+    social_health_num %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11) ~ "Poor",   
+    social_health_num %in% c(12, 13, 14) ~ "Good",
+    TRUE ~ NA_character_
+  ))
+
+lm_shh1_d <- lm(PC1 ~ social_health2_d, data = analysis_df)
+summary(lm_shh1_d)
+confint(lm_shh1_d)
+
+lm_shh2_d <- lm(PC2 ~ social_health2_d, data = analysis_df)
+summary(lm_shh2_d)
+confint(lm_shh2_d)
+
 
 # ---------- Social Relationships Ordinal Models ----------
 lm_sr1 <- lm(PC1 ~ social_relationships_ordinal, data = analysis_df)
@@ -71,7 +87,7 @@ confint(lm_2sa2)
 
 
 
-# ---------- Composite Social Function Models ----------
+# ---------- Social Function Models ----------
 lm_socialfunc1 <- lm(PC1 ~ social_function_num, data = analysis_df)
 summary(lm_socialfunc1)
 confint(lm_socialfunc1)
@@ -81,7 +97,7 @@ summary(lm_socialfunc2)
 confint(lm_socialfunc2)
 
 
-# ---------- Composite Social Function Dichotomized Models ----------
+# ----------Social Function Dichotomized Models ----------
 library(dplyr)
 analysis_df <- analysis_df |> 
   mutate(social_function_d = case_when(
@@ -97,6 +113,25 @@ confint(lm_socialfunc1_d)
 lm_socialfunc2_d <- lm(PC2 ~ social_function_d, data = analysis_df)
 summary(lm_socialfunc2_d)
 confint(lm_socialfunc2_d)
+
+
+
+# ----------Social Function (New) Dichotomized Models ----------
+library(dplyr)
+analysis_df <- analysis_df |> 
+  mutate(social_function2_d = case_when(
+    social_function_num %in% c(2, 3, 4, 5, 6, 7, 8) ~ "Poor",   
+    social_function_num %in% c(9, 10) ~ "Good",
+    TRUE ~ NA_character_
+  ))
+
+lm_socialfuncc1_d <- lm(PC1 ~ social_function2_d, data = analysis_df)
+summary(lm_socialfuncc1_d)
+confint(lm_socialfuncc1_d)
+
+lm_socialfuncc2_d <- lm(PC2 ~ social_function2_d, data = analysis_df)
+summary(lm_socialfuncc2_d)
+confint(lm_socialfuncc2_d)
 
 
 
