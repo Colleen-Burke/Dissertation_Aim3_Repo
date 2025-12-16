@@ -3,31 +3,31 @@ library(dplyr)
 
 analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 
-# ---------- Social Factor  Models ----------
-lm_sf1 <- lm(PC1 ~ social_factor_num, data = analysis_df)
-summary(lm_sf1)
-confint(lm_sf1)
+# ---------- Social Health Factor  Models ----------
+lm_sh1 <- lm(PC1 ~ social_health_num, data = analysis_df)
+summary(lm_sh1)
+confint(lm_sh1)
 
-lm_sf2 <- lm(PC2 ~ social_factor_num, data = analysis_df)
-summary(lm_sf2)
-confint(lm_sf2)
+lm_sh2 <- lm(PC2 ~ social_health_num, data = analysis_df)
+summary(lm_sh2)
+confint(lm_sh2)
 
 
-# ---------- Social Factor Dichotomous Models ----------
+# ---------- Social Health Factor Dichotomous Models ----------
 analysis_df <- analysis_df |> 
-  mutate(social_factor_d = case_when(
-    social_factor_num %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10) ~ "Poor",   
-    social_factor_num %in% c(11, 12, 13, 14) ~ "Good",
+  mutate(social_health_d = case_when(
+    social_health_num %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10) ~ "Poor",   
+    social_health_num %in% c(11, 12, 13, 14) ~ "Good",
     TRUE ~ NA_character_
   ))
 
-lm_sf1_d <- lm(PC1 ~ social_factor_d, data = analysis_df)
-summary(lm_sf1_d)
-confint(lm_sf1_d)
+lm_sh1_d <- lm(PC1 ~ social_health_d, data = analysis_df)
+summary(lm_sh1_d)
+confint(lm_sh1_d)
 
-lm_sf2_d <- lm(PC2 ~ social_factor_d, data = analysis_df)
-summary(lm_sf2_d)
-confint(lm_sf2_d)
+lm_sh2_d <- lm(PC2 ~ social_health_d, data = analysis_df)
+summary(lm_sh2_d)
+confint(lm_sh2_d)
 
 
 
@@ -71,17 +71,17 @@ confint(lm_2sa2)
 
 
 
-# ---------- Composite Social Models ----------
-lm_socialcomp1 <- lm(PC1 ~ social_function_num, data = analysis_df)
-summary(lm_socialcomp1)
-confint(lm_socialcomp1)
+# ---------- Composite Social Function Models ----------
+lm_socialfunc1 <- lm(PC1 ~ social_function_num, data = analysis_df)
+summary(lm_socialfunc1)
+confint(lm_socialfunc1)
 
-lm_socialcomp2 <- lm(PC2 ~ social_function_num, data = analysis_df)
-summary(lm_socialcomp2)
-confint(lm_socialcomp2)
+lm_socialfunc2 <- lm(PC2 ~ social_function_num, data = analysis_df)
+summary(lm_socialfunc2)
+confint(lm_socialfunc2)
 
 
-# ---------- Composite Social Dichotomized Models ----------
+# ---------- Composite Social Function Dichotomized Models ----------
 library(dplyr)
 analysis_df <- analysis_df |> 
   mutate(social_function_d = case_when(
@@ -90,13 +90,13 @@ analysis_df <- analysis_df |>
     TRUE ~ NA_character_
   ))
 
-lm_socialcomp1_d <- lm(PC1 ~ social_function_d, data = analysis_df)
-summary(lm_socialcomp1_d)
-confint(lm_socialcomp1_d)
+lm_socialfunc1_d <- lm(PC1 ~ social_function_d, data = analysis_df)
+summary(lm_socialfunc1_d)
+confint(lm_socialfunc1_d)
 
-lm_socialcomp2_d <- lm(PC2 ~ social_function_d, data = analysis_df)
-summary(lm_socialcomp2_d)
-confint(lm_socialcomp2_d)
+lm_socialfunc2_d <- lm(PC2 ~ social_function_d, data = analysis_df)
+summary(lm_socialfunc2_d)
+confint(lm_socialfunc2_d)
 
 
 
