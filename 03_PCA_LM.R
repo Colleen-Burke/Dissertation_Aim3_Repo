@@ -4,11 +4,11 @@ library(dplyr)
 analysis_df <- readRDS(here("Aim3_Data_with_PCA.rds"))
 
 # ---------- Social Factor  Models ----------
-lm_sf1 <- lm(PC1 ~ social_factor, data = analysis_df)
+lm_sf1 <- lm(PC1 ~ social_factor_num, data = analysis_df)
 summary(lm_sf1)
 confint(lm_sf1)
 
-lm_sf2 <- lm(PC2 ~ social_factor, data = analysis_df)
+lm_sf2 <- lm(PC2 ~ social_factor_num, data = analysis_df)
 summary(lm_sf2)
 confint(lm_sf2)
 
@@ -16,8 +16,8 @@ confint(lm_sf2)
 # ---------- Social Factor Dichotomous Models ----------
 analysis_df <- analysis_df |> 
   mutate(social_factor_d = case_when(
-    social_factor %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10) ~ "Poor",   
-    social_factor %in% c(11, 12, 13, 14) ~ "Good",
+    social_factor_num %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10) ~ "Poor",   
+    social_factor_num %in% c(11, 12, 13, 14) ~ "Good",
     TRUE ~ NA_character_
   ))
 
@@ -72,11 +72,11 @@ confint(lm_2sa2)
 
 
 # ---------- Composite Social Models ----------
-lm_socialcomp1 <- lm(PC1 ~ social_composite_sum, data = analysis_df)
+lm_socialcomp1 <- lm(PC1 ~ social_function_num, data = analysis_df)
 summary(lm_socialcomp1)
 confint(lm_socialcomp1)
 
-lm_socialcomp2 <- lm(PC2 ~ social_composite_sum, data = analysis_df)
+lm_socialcomp2 <- lm(PC2 ~ social_function_num, data = analysis_df)
 summary(lm_socialcomp2)
 confint(lm_socialcomp2)
 
@@ -84,17 +84,17 @@ confint(lm_socialcomp2)
 # ---------- Composite Social Dichotomized Models ----------
 library(dplyr)
 analysis_df <- analysis_df |> 
-  mutate(social_composite_d = case_when(
-    social_composite_sum %in% c(2, 3, 4, 5, 6, 7) ~ "Poor",   
-    social_composite_sum %in% c(8, 9, 10) ~ "Good",
+  mutate(social_function_d = case_when(
+    social_function_num %in% c(2, 3, 4, 5, 6, 7) ~ "Poor",   
+    social_function_num %in% c(8, 9, 10) ~ "Good",
     TRUE ~ NA_character_
   ))
 
-lm_socialcomp1_d <- lm(PC1 ~ social_composite_d, data = analysis_df)
+lm_socialcomp1_d <- lm(PC1 ~ social_function_d, data = analysis_df)
 summary(lm_socialcomp1_d)
 confint(lm_socialcomp1_d)
 
-lm_socialcomp2_d <- lm(PC2 ~ social_composite_d, data = analysis_df)
+lm_socialcomp2_d <- lm(PC2 ~ social_function_d, data = analysis_df)
 summary(lm_socialcomp2_d)
 confint(lm_socialcomp2_d)
 
