@@ -160,6 +160,57 @@ confint(lm_sad2_new_race2)
 
 
 
+#--- Social Health with PC1 Stratified by race ---
+lm_sf1_race1 <- lm(PC1 ~ social_function_num, data = analysis_df_race1)
+lm_sf1_race2 <- lm(PC1 ~ social_function_num, data = analysis_df_race2)
+
+summary(lm_sf1_race1)
+confint(lm_sf1_race1)
+
+summary(lm_sf1_race2)
+confint(lm_sf1_race2)
+
+
+#--- Social Health with PC2 Stratified by race ---
+lm_sf2_race1 <- lm(PC2 ~ social_function_num, data = analysis_df_race1)
+lm_sf2_race2 <- lm(PC2 ~ social_function_num, data = analysis_df_race2)
+
+summary(lm_sf2_race1)
+confint(lm_sf2_race1)
+
+summary(lm_sf2_race2)
+confint(lm_sf2_race2)
+
+
+
+
+#--- Social Health Factor Dichotomous with PC1 Stratified by race ---
+lm_sfd1_race1 <- lm(PC1 ~ social_function_d, data = analysis_df_race1)
+lm_sfd1_race2 <- lm(PC1 ~ social_function_d, data = analysis_df_race2)
+
+summary(lm_sfd1_race1)
+confint(lm_sfd1_race1)
+
+summary(lm_sfd1_race2)
+confint(lm_sfd1_race2)
+
+
+
+#--- Social Function Dichotomous with PC2 Stratified by race ---
+lm_sfd2_race1 <- lm(PC2 ~ social_function_d, data = analysis_df_race1)
+lm_sfd2_race2 <- lm(PC2 ~ social_function_d, data = analysis_df_race2)
+
+summary(lm_sfd2_race1)
+confint(lm_sfd2_race1)
+
+summary(lm_sfd2_race2)
+confint(lm_sfd2_race2)
+
+
+
+
+
+
 
 #--- Social Isolation and PC1 Stratified by Race ---------------------------------------
 lm_sid1_race1 <- lm(PC1 ~ isolation_cat_d, data = analysis_df_race1)
@@ -209,48 +260,48 @@ confint(lm_sid2_new_race2)
 
 
 
-#--- Social Composite with PC1 Stratified by race ---
-lm_sf1_race1 <- lm(PC1 ~ social_factor, data = analysis_df_race1)
-lm_sf1_race2 <- lm(PC1 ~ social_factor, data = analysis_df_race2)
+#--- Social Health with PC1 Stratified by race ---
+lm_sh1_race1 <- lm(PC1 ~ social_health_num, data = analysis_df_race1)
+lm_sh1_race2 <- lm(PC1 ~ social_health_num, data = analysis_df_race2)
 
-summary(lm_sf1_race1)
-confint(lm_sf1_race1)
+summary(lm_sh1_race1)
+confint(lm_sh1_race1)
 
-summary(lm_sf1_race2)
-confint(lm_sf1_race2)
-
-
-#--- Social Composite with PC2 Stratified by race ---
-lm_sf2_race1 <- lm(PC2 ~ social_factor, data = analysis_df_race1)
-lm_sf2_race2 <- lm(PC2 ~ social_factor, data = analysis_df_race2)
-
-summary(lm_sf2_race1)
-confint(lm_sf2_race1)
-
-summary(lm_sf2_race2)
-confint(lm_sf2_race2)
+summary(lm_sh1_race2)
+confint(lm_sh1_race2)
 
 
+#--- Social Health with PC2 Stratified by race ---
+lm_sh2_race1 <- lm(PC2 ~ social_health_num, data = analysis_df_race1)
+lm_sh2_race2 <- lm(PC2 ~ social_health_num, data = analysis_df_race2)
 
+summary(lm_sh2_race1)
+confint(lm_sh2_race1)
 
-#--- Social Composite Dichotomous with PC1 Stratified by race ---
-lm_sfd1_race1 <- lm(PC1 ~ social_factor_d, data = analysis_df_race1)
-lm_sfd1_race2 <- lm(PC1 ~ social_factor_d, data = analysis_df_race2)
-
-summary(lm_sfd1_race1)
-confint(lm_sfd1_race1)
-
-summary(lm_sfd1_race2)
-confint(lm_sfd1_race2)
+summary(lm_sh2_race2)
+confint(lm_sh2_race2)
 
 
 
-#--- Social Composite Dichotomous with PC2 Stratified by race ---
-lm_sfd2_race1 <- lm(PC2 ~ social_factor_d, data = analysis_df_race1)
-lm_sfd2_race2 <- lm(PC2 ~ social_factor_d, data = analysis_df_race2)
 
-summary(lm_sfd2_race1)
-confint(lm_sfd2_race1)
+#--- Social Health Factor Dichotomous with PC1 Stratified by race ---
+lm_shd1_race1 <- lm(PC1 ~ social_health_d, data = analysis_df_race1)
+lm_shd1_race2 <- lm(PC1 ~ social_health_d, data = analysis_df_race2)
 
-summary(lm_sfd2_race2)
-confint(lm_sfd2_race2)
+summary(lm_shd1_race1)
+confint(lm_shd1_race1)
+
+summary(lm_shd1_race2)
+confint(lm_shd1_race2)
+
+
+
+#--- Social Health Factor Dichotomous with PC2 Stratified by race ---
+lm_shd2_race1 <- lm(PC2 ~ social_health_d, data = analysis_df_race1)
+lm_shd2_race2 <- lm(PC2 ~ social_health_d, data = analysis_df_race2)
+
+summary(lm_shd2_race1)
+confint(lm_shd2_race1)
+
+summary(lm_shd2_race2)
+confint(lm_shd2_race2)
