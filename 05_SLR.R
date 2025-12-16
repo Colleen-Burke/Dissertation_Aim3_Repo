@@ -15,8 +15,8 @@ exposures <- c(
   "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
   "isolation_item_communicate", "isolation_item_visit", 
   "isolation_item_communicate_d", "isolation_item_visit_d", "race_f", 
-  "race_dichotomized", "social_factor", "social_factor_d", 
-  "social_composite_sum"
+  "race_dichotomized", "social_health_num", "social_health_d", 
+  "social_function_num", "social_function_d"
 )
 
 outcomes <- c(
