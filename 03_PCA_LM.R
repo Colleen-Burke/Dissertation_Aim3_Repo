@@ -100,6 +100,20 @@ confint(lm_socialfunc2_d)
 
 
 
+# ---------- Social Isolation Score Models ----------
+lm_iso1 <- lm(PC1 ~ isolation_score, data = analysis_df)
+summary(lm_iso1)
+confint(lm_iso1)
+
+lm_iso2 <- lm(PC2 ~ isolation_score, data = analysis_df)
+summary(lm_iso2)
+confint(lm_iso2)
+
+
+
+
+
+
 
 # ---------- Social Isolation Ordinal Models ----------
 lm_si1 <- lm(PC1 ~ isolation_cat_ordinal, data = analysis_df)

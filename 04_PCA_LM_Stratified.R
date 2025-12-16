@@ -256,7 +256,26 @@ confint(lm_sfd2_race2)
 
 
 
+#--- Social Isolation Score and PC1 Stratified by Race ---------------------------------------
+lm_iso1_race1 <- lm(PC1 ~ isolation_score, data = analysis_df_race1)
+lm_iso1_race2 <- lm(PC1 ~ isolation_score, data = analysis_df_race2)
 
+summary(lm_iso1_race1)
+confint(lm_iso1_race1)
+
+summary(lm_iso1_race2)
+confint(lm_iso1_race2)
+
+
+#--- Social Isolation Score and PC2 Stratified by Race ---------------------------------------
+lm_iso2_race1 <- lm(PC2 ~ isolation_score, data = analysis_df_race1)
+lm_iso2_race2 <- lm(PC2 ~ isolation_score, data = analysis_df_race2)
+
+summary(lm_iso2_race1)
+confint(lm_iso2_race1)
+
+summary(lm_iso2_race2)
+confint(lm_iso2_race2)
 
 
 

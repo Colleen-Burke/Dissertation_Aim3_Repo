@@ -21,7 +21,7 @@ exposures <- c(
   "social_activities_ordinal", "social_activities_nominal", 
   "social_activities_d", "social_activities2_d", "isolation_cat_ordinal", 
   "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
-  "isolation_item_communicate", "isolation_item_visit", 
+  "isolation_item_communicate", "isolation_item_visit", "isolation_score",
   "isolation_item_communicate_d", "isolation_item_visit_d", "social_health_num", 
   "social_health_d", "social_function_num", "social_function_d"
 )
