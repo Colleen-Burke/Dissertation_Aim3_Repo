@@ -8,19 +8,6 @@ analysis_df <- readRDS(here("Aim3_Data_full.rds"))
 analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
 analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
 
-# Make High Social Relationships the Referent
-analysis_df_race1 <- analysis_df_race1 |>
-  mutate(
-    social_relationships_d = factor(social_relationships_d,
-                                     levels = c("High", "Low"))
-  )
-
-analysis_df_race2 <- analysis_df_race2 |>
-  mutate(
-    social_relationships_d = factor(social_relationships_d,
-                                     levels = c("High", "Low"))
-  )
-
 # Make High Social Relationships (New) the Referent
 analysis_df_race1 <- analysis_df_race1 |>
   mutate(
@@ -34,107 +21,31 @@ analysis_df_race2 <- analysis_df_race2 |>
                                      levels = c("High", "Low"))
   )
 
-# Make High Social Activities the Referent
-analysis_df_race1 <- analysis_df_race1 |>
-  mutate(
-    social_activities_d = factor(social_activities_d,
-                                     levels = c("High", "Low"))
-  )
-
-analysis_df_race2 <- analysis_df_race2 |>
-  mutate(
-    social_activities_d = factor(social_activities_d,
-                                     levels = c("High", "Low"))
-  )
-
 # Make High Social Activities (New) the Referent
 analysis_df_race1 <- analysis_df_race1 |>
   mutate(
     social_activities2_d = factor(social_activities2_d,
-                                 levels = c("High", "Low"))
+                                  levels = c("High", "Low"))
   )
 
 analysis_df_race2 <- analysis_df_race2 |>
   mutate(
     social_activities2_d = factor(social_activities2_d,
-                                 levels = c("High", "Low"))
-  )
-
-# Make High Social Function the Referent
-analysis_df_race1 <- analysis_df_race1 |>
-  mutate(
-    social_function_d = factor(social_function_d,
                                   levels = c("High", "Low"))
-  )
-
-analysis_df_race2 <- analysis_df_race2 |>
-  mutate(
-    social_function_d = factor(social_function_d,
-                                  levels = c("High", "Low"))
-  )
-
-# Make New High Social Function the Referent
-analysis_df_race1 <- analysis_df_race1 |>
-  mutate(
-    social_function2_d = factor(social_function2_d,
-                               levels = c("High", "Low"))
-  )
-
-analysis_df_race2 <- analysis_df_race2 |>
-  mutate(
-    social_function2_d = factor(social_function2_d,
-                               levels = c("High", "Low"))
-  )
-
-# Make High Social Health the Referent
-analysis_df_race1 <- analysis_df_race1 |>
-  mutate(
-    social_health_d = factor(social_health_d,
-                               levels = c("High", "Low"))
-  )
-
-analysis_df_race2 <- analysis_df_race2 |>
-  mutate(
-    social_health_d = factor(social_health_d,
-                               levels = c("High", "Low"))
   )
 
 # Make New High Social Health the Referent
 analysis_df_race1 <- analysis_df_race1 |>
   mutate(
     social_health2_d = factor(social_health2_d,
-                             levels = c("High", "Low"))
+                              levels = c("High", "Low"))
   )
 
 analysis_df_race2 <- analysis_df_race2 |>
   mutate(
     social_health2_d = factor(social_health2_d,
-                             levels = c("High", "Low"))
+                              levels = c("High", "Low"))
   )
-
-#--- Social Relationships (Dichot.) and PC1 Stratified by Race ---------------------------------------
-lm_srd1_race1 <- lm(PC1 ~ social_relationships_d, data = analysis_df_race1)
-lm_srd1_race2 <- lm(PC1 ~ social_relationships_d, data = analysis_df_race2)
-
-summary(lm_srd1_race1)
-confint(lm_srd1_race1)
-
-summary(lm_srd1_race2)
-confint(lm_srd1_race2)
-
-
-
-#--- Social Relationships (Dichot.) and PC2 Stratified by Race ---------------------------------------
-lm_srd2_race1 <- lm(PC2 ~ social_relationships_d, data = analysis_df_race1)
-lm_srd2_race2 <- lm(PC2 ~ social_relationships_d, data = analysis_df_race2)
-
-summary(lm_srd2_race1)
-confint(lm_srd2_race1)
-
-summary(lm_srd2_race2)
-confint(lm_srd2_race2)
-
-
 
 
 #--- Social Relationships (New Dichot.) and PC1 Stratified by Race ---------------------------------------
@@ -148,7 +59,6 @@ summary(lm_srd1_new_race2)
 confint(lm_srd1_new_race2)
 
 
-
 #--- Social Relationships (New Dichot.) and PC2 Stratified by Race ---------------------------------------
 lm_srd2_new_race1 <- lm(PC2 ~ social_relationships2_d, data = analysis_df_race1)
 lm_srd2_new_race2 <- lm(PC2 ~ social_relationships2_d, data = analysis_df_race2)
@@ -158,31 +68,6 @@ confint(lm_srd2_new_race1)
 
 summary(lm_srd2_new_race2)
 confint(lm_srd2_new_race2)
-
-
-
-#--- Social Activities Dichotomized and PC1 Stratified by Race ---------------------------------------
-lm_sad1_race1 <- lm(PC1 ~ social_activities_d, data = analysis_df_race1)
-lm_sad1_race2 <- lm(PC1 ~ social_activities_d, data = analysis_df_race2)
-
-summary(lm_sad1_race1)
-confint(lm_sad1_race1)
-
-summary(lm_sad1_race2)
-confint(lm_sad1_race2)
-
-
-
-#--- Social Activities Dichotomized and PC2 Stratified by Race ---------------------------------------
-lm_sad2_race1 <- lm(PC2 ~ social_activities_d, data = analysis_df_race1)
-lm_sad2_race2 <- lm(PC2 ~ social_activities_d, data = analysis_df_race2)
-
-summary(lm_sad2_race1)
-confint(lm_sad2_race1)
-
-summary(lm_sad2_race2)
-confint(lm_sad2_race2)
-
 
 
 #--- Social Activities (New Dichotomized) and PC1 Stratified by Race ---------------------------------------
@@ -196,7 +81,6 @@ summary(lm_sad1_new_race2)
 confint(lm_sad1_new_race2)
 
 
-
 #--- Social Activities (New Dichotomized) and PC2 Stratified by Race ---------------------------------------
 lm_sad2_new_race1 <- lm(PC2 ~ social_activities2_d, data = analysis_df_race1)
 lm_sad2_new_race2 <- lm(PC2 ~ social_activities2_d, data = analysis_df_race2)
@@ -206,149 +90,6 @@ confint(lm_sad2_new_race1)
 
 summary(lm_sad2_new_race2)
 confint(lm_sad2_new_race2)
-
-
-
-
-#--- Social Function with PC1 Stratified by race --------------
-lm_sf1_race1 <- lm(PC1 ~ social_function_num, data = analysis_df_race1)
-lm_sf1_race2 <- lm(PC1 ~ social_function_num, data = analysis_df_race2)
-
-summary(lm_sf1_race1)
-confint(lm_sf1_race1)
-
-summary(lm_sf1_race2)
-confint(lm_sf1_race2)
-
-
-#--- Social Function with PC2 Stratified by race --------------
-lm_sf2_race1 <- lm(PC2 ~ social_function_num, data = analysis_df_race1)
-lm_sf2_race2 <- lm(PC2 ~ social_function_num, data = analysis_df_race2)
-
-summary(lm_sf2_race1)
-confint(lm_sf2_race1)
-
-summary(lm_sf2_race2)
-confint(lm_sf2_race2)
-
-
-
-
-#--- Social Function Dichotomous with PC1 Stratified by race ---
-analysis_df <- analysis_df |>
-  mutate(
-    # if you already have the *_num pieces, keep this; otherwise compute them upstream
-    social_function_num = social_relationships_num + social_activities_num,
-    
-    social_function_d = factor(
-      case_when(
-        is.na(social_function_num) ~ NA_character_,
-        social_function_num >= 8 ~ "High",   # or use your chosen cutoff
-        TRUE ~ "Low"
-      ),
-      levels = c("High", "Low")
-    )
-  )
-
-analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0) |> droplevels()
-analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1) |> droplevels()
-
-table(analysis_df_race1$social_function_d, useNA = "ifany")
-table(analysis_df_race2$social_function_d, useNA = "ifany")
-
-
-#--- Social Function Dichotomous with PC1 Stratified by race --------------
-lm_sfd1_race1 <- lm(PC1 ~ social_function_d, data = analysis_df_race1)
-lm_sfd1_race2 <- lm(PC1 ~ social_function_d, data = analysis_df_race2)
-
-summary(lm_sfd1_race1)
-confint(lm_sfd1_race1)
-
-summary(lm_sfd1_race2)
-confint(lm_sfd1_race2)
-
-
-
-#--- Social Function Dichotomous with PC2 Stratified by race --------------
-lm_sfd2_race1 <- lm(PC2 ~ social_function_d, data = analysis_df_race1)
-lm_sfd2_race2 <- lm(PC2 ~ social_function_d, data = analysis_df_race2)
-
-summary(lm_sfd2_race1)
-confint(lm_sfd2_race1)
-
-summary(lm_sfd2_race2)
-confint(lm_sfd2_race2)
-
-
-
-#--- Social Function New Dichotomous with PC1 Stratified by race ---
-analysis_df <- analysis_df |>
-  mutate(
-    # if you already have the *_num pieces, keep this; otherwise compute them upstream
-    social_function_num = social_relationships_num + social_activities_num,
-    
-    social_function2_d = factor(
-      case_when(
-        is.na(social_function_num) ~ NA_character_,
-        social_function_num >= 9 ~ "High",   # or use your chosen cutoff
-        TRUE ~ "Low"
-      ),
-      levels = c("High", "Low")
-    )
-  )
-
-analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0) |> droplevels()
-analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1) |> droplevels()
-
-table(analysis_df_race1$social_function2_d, useNA = "ifany")
-table(analysis_df_race2$social_function2_d, useNA = "ifany")
-
-lm_sffd1_race1 <- lm(PC1 ~ social_function2_d, data = analysis_df_race1)
-lm_sffd1_race2 <- lm(PC1 ~ social_function2_d, data = analysis_df_race2)
-
-summary(lm_sffd1_race1)
-confint(lm_sffd1_race1)
-
-summary(lm_sffd1_race2)
-confint(lm_sffd1_race2)
-
-
-
-#--- Social Function New Dichotomous with PC2 Stratified by race --------------
-lm_sffd2_race1 <- lm(PC2 ~ social_function2_d, data = analysis_df_race1)
-lm_sffd2_race2 <- lm(PC2 ~ social_function2_d, data = analysis_df_race2)
-
-summary(lm_sffd2_race1)
-confint(lm_sffd2_race1)
-
-summary(lm_sffd2_race2)
-confint(lm_sffd2_race2)
-
-
-
-
-
-#--- Social Isolation Score and PC1 Stratified by Race ---------------------------------------
-lm_iso1_race1 <- lm(PC1 ~ isolation_score, data = analysis_df_race1)
-lm_iso1_race2 <- lm(PC1 ~ isolation_score, data = analysis_df_race2)
-
-summary(lm_iso1_race1)
-confint(lm_iso1_race1)
-
-summary(lm_iso1_race2)
-confint(lm_iso1_race2)
-
-
-#--- Social Isolation Score and PC2 Stratified by Race ---------------------------------------
-lm_iso2_race1 <- lm(PC2 ~ isolation_score, data = analysis_df_race1)
-lm_iso2_race2 <- lm(PC2 ~ isolation_score, data = analysis_df_race2)
-
-summary(lm_iso2_race1)
-confint(lm_iso2_race1)
-
-summary(lm_iso2_race2)
-confint(lm_iso2_race2)
-
 
 
 #--- Social Isolation and PC1 Stratified by Race ---------------------------------------
@@ -373,80 +114,6 @@ summary(lm_sid2_race2)
 confint(lm_sid2_race2)
 
 
-
-#--- Social Isolation (New) and PC1 Stratified by Race ---------------------------------------
-lm_sid1_new_race1 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race1)
-lm_sid1_new_race2 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race2)
-
-summary(lm_sid1_new_race1)
-confint(lm_sid1_new_race1)
-
-summary(lm_sid1_new_race2)
-confint(lm_sid1_new_race2)
-
-
-#--- Social Isolation (New) and PC2 Stratified by Race ---------------------------------------
-lm_sid2_new_race1 <- lm(PC2 ~ isolation_cat2_d, data = analysis_df_race1)
-lm_sid2_new_race2 <- lm(PC2 ~ isolation_cat2_d, data = analysis_df_race2)
-
-summary(lm_sid2_new_race1)
-confint(lm_sid2_new_race1)
-
-summary(lm_sid2_new_race2)
-confint(lm_sid2_new_race2)
-
-
-
-
-
-#--- Social Health with PC1 Stratified by race ---------------
-lm_sh1_race1 <- lm(PC1 ~ social_health_num, data = analysis_df_race1)
-lm_sh1_race2 <- lm(PC1 ~ social_health_num, data = analysis_df_race2)
-
-summary(lm_sh1_race1)
-confint(lm_sh1_race1)
-
-summary(lm_sh1_race2)
-confint(lm_sh1_race2)
-
-
-#--- Social Health with PC2 Stratified by race ---------------
-lm_sh2_race1 <- lm(PC2 ~ social_health_num, data = analysis_df_race1)
-lm_sh2_race2 <- lm(PC2 ~ social_health_num, data = analysis_df_race2)
-
-summary(lm_sh2_race1)
-confint(lm_sh2_race1)
-
-summary(lm_sh2_race2)
-confint(lm_sh2_race2)
-
-
-
-
-#--- Social Health Factor Dichotomous with PC1 Stratified by race ---------------
-lm_shd1_race1 <- lm(PC1 ~ social_health_d, data = analysis_df_race1)
-lm_shd1_race2 <- lm(PC1 ~ social_health_d, data = analysis_df_race2)
-
-summary(lm_shd1_race1)
-confint(lm_shd1_race1)
-
-summary(lm_shd1_race2)
-confint(lm_shd1_race2)
-
-
-
-#--- Social Health Factor Dichotomous with PC2 Stratified by race ---------------
-lm_shd2_race1 <- lm(PC2 ~ social_health_d, data = analysis_df_race1)
-lm_shd2_race2 <- lm(PC2 ~ social_health_d, data = analysis_df_race2)
-
-summary(lm_shd2_race1)
-confint(lm_shd2_race1)
-
-summary(lm_shd2_race2)
-confint(lm_shd2_race2)
-
-
-
 #--- Social Health Factor New Dichotomous with PC1 Stratified by race ---------------
 lm_shhd1_race1 <- lm(PC1 ~ social_health2_d, data = analysis_df_race1)
 lm_shhd1_race2 <- lm(PC1 ~ social_health2_d, data = analysis_df_race2)
@@ -458,7 +125,6 @@ summary(lm_shhd1_race2)
 confint(lm_shhd1_race2)
 
 
-
 #--- Social Health Factor New Dichotomous with PC2 Stratified by race ---------------
 lm_shhd2_race1 <- lm(PC2 ~ social_health2_d, data = analysis_df_race1)
 lm_shhd2_race2 <- lm(PC2 ~ social_health2_d, data = analysis_df_race2)
@@ -468,3 +134,312 @@ confint(lm_shhd2_race1)
 
 summary(lm_shhd2_race2)
 confint(lm_shhd2_race2)
+
+
+
+
+# # Make High Social Relationships the Referent
+# # analysis_df_race1 <- analysis_df_race1 |>
+# #   mutate(
+# #     social_relationships_d = factor(social_relationships_d,
+# #                                      levels = c("High", "Low"))
+# #   )
+# # 
+# # analysis_df_race2 <- analysis_df_race2 |>
+# #   mutate(
+# #     social_relationships_d = factor(social_relationships_d,
+# #                                      levels = c("High", "Low"))
+# #   )
+# 
+# # Make High Social Activities the Referent
+# # analysis_df_race1 <- analysis_df_race1 |>
+# #   mutate(
+# #     social_activities_d = factor(social_activities_d,
+# #                                      levels = c("High", "Low"))
+# #   )
+# # 
+# # analysis_df_race2 <- analysis_df_race2 |>
+# #   mutate(
+# #     social_activities_d = factor(social_activities_d,
+# #                                      levels = c("High", "Low"))
+# #   )
+# 
+# # Make High Social Function the Referent
+# # analysis_df_race1 <- analysis_df_race1 |>
+# #   mutate(
+# #     social_function_d = factor(social_function_d,
+# #                                   levels = c("High", "Low"))
+# #   )
+# # 
+# # analysis_df_race2 <- analysis_df_race2 |>
+# #   mutate(
+# #     social_function_d = factor(social_function_d,
+# #                                   levels = c("High", "Low"))
+# #   )
+# 
+# # Make New High Social Function the Referent
+# # analysis_df_race1 <- analysis_df_race1 |>
+# #   mutate(
+# #     social_function2_d = factor(social_function2_d,
+# #                                levels = c("High", "Low"))
+# #   )
+# 
+# # analysis_df_race2 <- analysis_df_race2 |>
+# #   mutate(
+# #     social_function2_d = factor(social_function2_d,
+# #                                levels = c("High", "Low"))
+# #   )
+# 
+# # Make High Social Health the Referent
+# # analysis_df_race1 <- analysis_df_race1 |>
+# #   mutate(
+# #     social_health_d = factor(social_health_d,
+# #                                levels = c("High", "Low"))
+# #   )
+# 
+# # analysis_df_race2 <- analysis_df_race2 |>
+# #   mutate(
+# #     social_health_d = factor(social_health_d,
+# #                                levels = c("High", "Low"))
+# #   )
+# 
+# #--- Social Relationships (Dichot.) and PC1 Stratified by Race ---------------------------------------
+# lm_srd1_race1 <- lm(PC1 ~ social_relationships_d, data = analysis_df_race1)
+# lm_srd1_race2 <- lm(PC1 ~ social_relationships_d, data = analysis_df_race2)
+# 
+# summary(lm_srd1_race1)
+# confint(lm_srd1_race1)
+# 
+# summary(lm_srd1_race2)
+# confint(lm_srd1_race2)
+# 
+# 
+# #--- Social Relationships (Dichot.) and PC2 Stratified by Race ---------------------------------------
+# lm_srd2_race1 <- lm(PC2 ~ social_relationships_d, data = analysis_df_race1)
+# lm_srd2_race2 <- lm(PC2 ~ social_relationships_d, data = analysis_df_race2)
+# 
+# summary(lm_srd2_race1)
+# confint(lm_srd2_race1)
+# 
+# summary(lm_srd2_race2)
+# confint(lm_srd2_race2)
+# 
+# 
+# #--- Social Activities Dichotomized and PC1 Stratified by Race ---------------------------------------
+# lm_sad1_race1 <- lm(PC1 ~ social_activities_d, data = analysis_df_race1)
+# lm_sad1_race2 <- lm(PC1 ~ social_activities_d, data = analysis_df_race2)
+# 
+# summary(lm_sad1_race1)
+# confint(lm_sad1_race1)
+# 
+# summary(lm_sad1_race2)
+# confint(lm_sad1_race2)
+# 
+# 
+# #--- Social Activities Dichotomized and PC2 Stratified by Race ---------------------------------------
+# lm_sad2_race1 <- lm(PC2 ~ social_activities_d, data = analysis_df_race1)
+# lm_sad2_race2 <- lm(PC2 ~ social_activities_d, data = analysis_df_race2)
+# 
+# summary(lm_sad2_race1)
+# confint(lm_sad2_race1)
+# 
+# summary(lm_sad2_race2)
+# confint(lm_sad2_race2)
+# 
+# 
+# #--- Social Function with PC1 Stratified by race --------------
+# lm_sf1_race1 <- lm(PC1 ~ social_function_num, data = analysis_df_race1)
+# lm_sf1_race2 <- lm(PC1 ~ social_function_num, data = analysis_df_race2)
+# 
+# summary(lm_sf1_race1)
+# confint(lm_sf1_race1)
+# 
+# summary(lm_sf1_race2)
+# confint(lm_sf1_race2)
+# 
+# 
+# #--- Social Function with PC2 Stratified by race --------------
+# lm_sf2_race1 <- lm(PC2 ~ social_function_num, data = analysis_df_race1)
+# lm_sf2_race2 <- lm(PC2 ~ social_function_num, data = analysis_df_race2)
+# 
+# summary(lm_sf2_race1)
+# confint(lm_sf2_race1)
+# 
+# summary(lm_sf2_race2)
+# confint(lm_sf2_race2)
+# 
+# 
+# #--- Social Function Dichotomous with PC1 Stratified by race ---
+# analysis_df <- analysis_df |>
+#   mutate(
+#     # if you already have the *_num pieces, keep this; otherwise compute them upstream
+#     social_function_num = social_relationships_num + social_activities_num,
+#     
+#     social_function_d = factor(
+#       case_when(
+#         is.na(social_function_num) ~ NA_character_,
+#         social_function_num >= 8 ~ "High",   # or use your chosen cutoff
+#         TRUE ~ "Low"
+#       ),
+#       levels = c("High", "Low")
+#     )
+#   )
+# 
+# analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0) |> droplevels()
+# analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1) |> droplevels()
+# 
+# table(analysis_df_race1$social_function_d, useNA = "ifany")
+# table(analysis_df_race2$social_function_d, useNA = "ifany")
+# 
+# 
+# #--- Social Function Dichotomous with PC1 Stratified by race --------------
+# lm_sfd1_race1 <- lm(PC1 ~ social_function_d, data = analysis_df_race1)
+# lm_sfd1_race2 <- lm(PC1 ~ social_function_d, data = analysis_df_race2)
+# 
+# summary(lm_sfd1_race1)
+# confint(lm_sfd1_race1)
+# 
+# summary(lm_sfd1_race2)
+# confint(lm_sfd1_race2)
+# 
+# 
+# #--- Social Function Dichotomous with PC2 Stratified by race --------------
+# lm_sfd2_race1 <- lm(PC2 ~ social_function_d, data = analysis_df_race1)
+# lm_sfd2_race2 <- lm(PC2 ~ social_function_d, data = analysis_df_race2)
+# 
+# summary(lm_sfd2_race1)
+# confint(lm_sfd2_race1)
+# 
+# summary(lm_sfd2_race2)
+# confint(lm_sfd2_race2)
+# 
+# 
+# #--- Social Function New Dichotomous with PC1 Stratified by race ---
+# analysis_df <- analysis_df |>
+#   mutate(
+#     # if you already have the *_num pieces, keep this; otherwise compute them upstream
+#     social_function_num = social_relationships_num + social_activities_num,
+#     
+#     social_function2_d = factor(
+#       case_when(
+#         is.na(social_function_num) ~ NA_character_,
+#         social_function_num >= 9 ~ "High",   # or use your chosen cutoff
+#         TRUE ~ "Low"
+#       ),
+#       levels = c("High", "Low")
+#     )
+#   )
+# 
+# analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0) |> droplevels()
+# analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1) |> droplevels()
+# 
+# table(analysis_df_race1$social_function2_d, useNA = "ifany")
+# table(analysis_df_race2$social_function2_d, useNA = "ifany")
+# 
+# lm_sffd1_race1 <- lm(PC1 ~ social_function2_d, data = analysis_df_race1)
+# lm_sffd1_race2 <- lm(PC1 ~ social_function2_d, data = analysis_df_race2)
+# 
+# summary(lm_sffd1_race1)
+# confint(lm_sffd1_race1)
+# 
+# summary(lm_sffd1_race2)
+# confint(lm_sffd1_race2)
+# 
+# 
+# #--- Social Function New Dichotomous with PC2 Stratified by race --------------
+# lm_sffd2_race1 <- lm(PC2 ~ social_function2_d, data = analysis_df_race1)
+# lm_sffd2_race2 <- lm(PC2 ~ social_function2_d, data = analysis_df_race2)
+# 
+# summary(lm_sffd2_race1)
+# confint(lm_sffd2_race1)
+# 
+# summary(lm_sffd2_race2)
+# confint(lm_sffd2_race2)
+# 
+# 
+# #--- Social Isolation Score and PC1 Stratified by Race ---------------------------------------
+# lm_iso1_race1 <- lm(PC1 ~ isolation_score, data = analysis_df_race1)
+# lm_iso1_race2 <- lm(PC1 ~ isolation_score, data = analysis_df_race2)
+# 
+# summary(lm_iso1_race1)
+# confint(lm_iso1_race1)
+# 
+# summary(lm_iso1_race2)
+# confint(lm_iso1_race2)
+# 
+# 
+# #--- Social Isolation Score and PC2 Stratified by Race ---------------------------------------
+# lm_iso2_race1 <- lm(PC2 ~ isolation_score, data = analysis_df_race1)
+# lm_iso2_race2 <- lm(PC2 ~ isolation_score, data = analysis_df_race2)
+# 
+# summary(lm_iso2_race1)
+# confint(lm_iso2_race1)
+# 
+# summary(lm_iso2_race2)
+# confint(lm_iso2_race2)
+# 
+# 
+# #--- Social Isolation (New) and PC1 Stratified by Race ---------------------------------------
+# lm_sid1_new_race1 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race1)
+# lm_sid1_new_race2 <- lm(PC1 ~ isolation_cat2_d, data = analysis_df_race2)
+# 
+# summary(lm_sid1_new_race1)
+# confint(lm_sid1_new_race1)
+# 
+# summary(lm_sid1_new_race2)
+# confint(lm_sid1_new_race2)
+# 
+# 
+# #--- Social Isolation (New) and PC2 Stratified by Race ---------------------------------------
+# lm_sid2_new_race1 <- lm(PC2 ~ isolation_cat2_d, data = analysis_df_race1)
+# lm_sid2_new_race2 <- lm(PC2 ~ isolation_cat2_d, data = analysis_df_race2)
+# 
+# summary(lm_sid2_new_race1)
+# confint(lm_sid2_new_race1)
+# 
+# summary(lm_sid2_new_race2)
+# confint(lm_sid2_new_race2)
+# 
+# 
+# #--- Social Health with PC1 Stratified by race ---------------
+# lm_sh1_race1 <- lm(PC1 ~ social_health_num, data = analysis_df_race1)
+# lm_sh1_race2 <- lm(PC1 ~ social_health_num, data = analysis_df_race2)
+# 
+# summary(lm_sh1_race1)
+# confint(lm_sh1_race1)
+# 
+# summary(lm_sh1_race2)
+# confint(lm_sh1_race2)
+# 
+# 
+# #--- Social Health with PC2 Stratified by race ---------------
+# lm_sh2_race1 <- lm(PC2 ~ social_health_num, data = analysis_df_race1)
+# lm_sh2_race2 <- lm(PC2 ~ social_health_num, data = analysis_df_race2)
+# 
+# summary(lm_sh2_race1)
+# confint(lm_sh2_race1)
+# 
+# summary(lm_sh2_race2)
+# confint(lm_sh2_race2)
+# 
+# 
+# #--- Social Health Factor Dichotomous with PC1 Stratified by race ---------------
+# lm_shd1_race1 <- lm(PC1 ~ social_health_d, data = analysis_df_race1)
+# lm_shd1_race2 <- lm(PC1 ~ social_health_d, data = analysis_df_race2)
+# 
+# summary(lm_shd1_race1)
+# confint(lm_shd1_race1)
+# 
+# summary(lm_shd1_race2)
+# confint(lm_shd1_race2)
+# 
+# 
+# #--- Social Health Factor Dichotomous with PC2 Stratified by race ---------------
+# lm_shd2_race1 <- lm(PC2 ~ social_health_d, data = analysis_df_race1)
+# lm_shd2_race2 <- lm(PC2 ~ social_health_d, data = analysis_df_race2)
+# 
+# summary(lm_shd2_race1)
+# confint(lm_shd2_race1)
+# 
+# summary(lm_shd2_race2)
+# confint(lm_shd2_race2)
