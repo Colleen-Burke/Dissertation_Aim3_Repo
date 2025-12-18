@@ -17,16 +17,17 @@ PC1top10_analysis_df <- PC1top10_analysis_df |>
 
 
 # what you wanted
-exposures <- c("social_relationships_ordinal", "social_relationships_nominal", 
-               "social_relationships_d", "social_relationships2_d", 
-               "social_activities_ordinal", "social_activities_nominal", 
-               "social_activities_d", "social_activities2_d", "isolation_cat_ordinal", 
-               "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
-               "isolation_item_communicate", "isolation_item_visit", 
-               "isolation_item_communicate_d", "isolation_item_visit_d", "race_f", 
-               "race_dichotomized", "social_health_num", "social_health_d", 
-               "social_function_num", "social_function_d", "isolation_score",
-               "social_function2_d", "social_health2_d")
+exposures <- c(
+  "social_relationships_ordinal", "social_relationships_nominal", 
+  "social_relationships_d", "social_relationships2_d", 
+  "social_activities_ordinal", "social_activities_nominal", 
+  "social_activities_d", "social_activities2_d", "isolation_cat_ordinal", 
+  "isolation_cat_nominal", "isolation_cat_d", "isolation_cat2_d", 
+  "isolation_item_communicate", "isolation_item_visit", "isolation_score",
+  "isolation_item_communicate_d", "isolation_item_visit_d", "social_health_num", 
+  "social_health_d", "social_function_num", "social_function_d", 
+  "social_health2_d", "social_function2_d")
+
 outcomes_PC1 <- c(
   "IL_10", "IFN_gamma", "IL_12p70", "IFN_alpha2", "CX3CL1",
   "IFN_lambda1", "IFN_lambda2_3", "sTREM_1", "sRAGE", "GM_CSF"
