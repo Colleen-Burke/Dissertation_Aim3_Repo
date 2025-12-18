@@ -158,6 +158,18 @@ confint(lm_si2_adj_race2)
 
 
 #-------- Social Health & PC1 Adjusted + Stratified ----------------------------
+analysis_df_race1 <- analysis_df |> filter(race_dichotomized == 0)
+analysis_df_race2 <- analysis_df |> filter(race_dichotomized == 1)
+
+
+nrow(analysis_df_race1) 
+table(analysis_df_race1$social_health2_d, useNA = "always")
+
+
+nrow(analysis_df_race2)  
+table(analysis_df_race2$social_health2_d, useNA = "always")
+
+
 lm_sh1_adj_race1 <- lm(
   PC1 ~ social_health2_d + age + sex + 
     bmi_measured + lbp_vas_current + mental_health,
