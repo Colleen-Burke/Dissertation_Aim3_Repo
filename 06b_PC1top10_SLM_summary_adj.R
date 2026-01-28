@@ -33,7 +33,7 @@ outcomes_PC1 <- c(
 
 # Covariates to adjust for
 covariates <- c(
-  "age", "sex", "race_dichotomized",
+  "age", "sex", 
   "bmi_measured", "mental_health", "lbp_vas_current"
 )
 

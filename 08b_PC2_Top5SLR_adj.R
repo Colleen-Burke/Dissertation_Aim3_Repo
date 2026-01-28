@@ -22,7 +22,7 @@ outcomes_PC2 <- c(
 )
 
 covariates <- c(
-  "age", "sex", "race_dichotomized",
+  "age", "sex", 
   "bmi_measured", "mental_health", "lbp_vas_current"
 )
 
@@ -69,7 +69,7 @@ PC2model_results_adj <- PC2model_grid_adj %>%
   unnest(tidy)
 
 #--- View summary table of results ---------------------------------------------
-PC2top10_SLM_summary_adj <- PC2model_results_adj %>%
+PC2top10_SLM_summary_adj2 <- PC2model_results_adj %>%
   filter(term != "(Intercept)") %>%  # remove intercept
   # Keep only exposure terms, not covariate terms
   filter(term %in% valid_exposures | 
@@ -77,7 +77,7 @@ PC2top10_SLM_summary_adj <- PC2model_results_adj %>%
   select(exposure, outcome_PC2, term, 
          estimate, std.error, statistic, conf.low, conf.high, p.value)
 
-print(as.data.frame(PC2top10_SLM_summary_adj))
+print(as.data.frame(PC2top10_SLM_summary_adj2))
 
-write.csv(PC2top10_SLM_summary_adj, here("PC2top10_SLM_adj_summary.csv"), row.names = FALSE)
+write.csv(PC2top10_SLM_summary_adj, here("PC2top10_SLM_adj_summary2.csv"), row.names = FALSE)
 #saveRDS(PC2top10_SLM_summary, here("PC2top10_SLM_adjusted_summary.rds"))

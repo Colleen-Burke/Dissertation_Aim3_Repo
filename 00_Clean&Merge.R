@@ -21,7 +21,7 @@ Transitions <- Transitions |>
     record_id, biospecimen_id,
     promis_global05_902706, promis_global09r_fbd679,
     isolation_score, isolation_cat, isolation_cat2, isolation_1, isolation_2,
-    race, race_other, ethnicity, sex, gender_identity, age, age_cat, bmi,
+    race, race_other, ethnicity, sex, gender_identity, age, age_cat, bmi_measured,
     education, insurance_type, oth_insurance_provider, marriage, finance,
     home_ownership, home_ownership_oth, employ_status, employ_status_other,
     workfunction, lbp_vas_current, cdc_pain_freq, cdc_pain_interfere,

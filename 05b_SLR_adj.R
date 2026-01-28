@@ -13,7 +13,7 @@ outcomes <- c(
   "sTREM_1", "beta_NGF", "IL_18", "sRAGE", "CX3CL1"
 )
 
-covariates <- c("age", "sex", "race_dichotomized", "bmi_measured", "mental_health", "lbp_vas_current")
+covariates <- c("age", "sex", "bmi_measured", "mental_health", "lbp_vas_current")
 
 model_grid <- expand_grid(exposure = exposures, outcome = outcomes)
 
@@ -34,17 +34,17 @@ model_results_adj <- model_grid |>
 # Keep exposure coefficient(s):
 # - continuous exposure: term == exposure
 # - factor exposure: term starts with exposure name (e.g., "social_health2_dLow")
-SLM_summary_adj <- model_results_adj |>
+SLM_summary_adj2 <- model_results_adj |>
   mutate(is_exposure_term = map2_lgl(term, exposure, ~ .x == .y || stringr::str_starts(.x, .y))) |>
   filter(is_exposure_term) |>
   select(exposure, outcome, term, estimate, std.error, statistic, p.value, conf.low, conf.high) |>
   rename(ci_lower = conf.low, ci_upper = conf.high) |>
   arrange(p.value)
 
-print(SLM_summary_adj)
+print(SLM_summary_adj2)
 
-SLM_summary_adj |>
+SLM_summary_adj2 |>
   slice_head(n = 150) |>
   print(n = 150)
 
-write.csv(SLM_summary_adj, here("SLM_summary_adj.csv"), row.names = FALSE)
+write.csv(SLM_summary_adj2, here("SLM_summary_adj2.csv"), row.names = FALSE)
