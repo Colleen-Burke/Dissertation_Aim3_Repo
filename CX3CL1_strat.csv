@@ -1,0 +1,7 @@
+﻿exposure,biomarker,race,estimate,conf.low,conf.high
+Social_Isolation,CX3CL1,Overall,-0.471936844,-0.991756887,0.047883198
+Social_Isolation,CX3CL1,White,-0.947348227,-1.571231558,-0.323464895
+Social_Isolation,CX3CL1,Non-White,0.73376163,-0.344881256,1.812404516
+Social_Health,CX3CL1,Overall,-0.448525021,-0.940077982,0.04302794
+Social_Health,CX3CL1,White,-0.792073429,-1.369051874,-0.215094983
+Social_Health,CX3CL1,Non-White,0.719584729,-0.428823461,1.867992918

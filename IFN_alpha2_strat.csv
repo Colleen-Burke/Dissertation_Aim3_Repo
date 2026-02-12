@@ -1,0 +1,7 @@
+﻿exposure,biomarker,race,estimate,conf.low,conf.high
+Social_Isolation,IFN_alpha2,Overall,-0.378972338,-0.792085965,0.034141289
+Social_Isolation,IFN_alpha2,White,-0.641847885,-1.111612473,-0.172083296
+Social_Isolation,IFN_alpha2,Non-White,0.344296831,-0.60058917,1.289182832
+Social_Health,IFN_alpha2,Overall,-0.367708884,-0.758080204,0.022662436
+Social_Health,IFN_alpha2,White,-0.360554778,-0.804792484,0.083682928
+Social_Health,IFN_alpha2,Non-White,-0.144292634,-1.154009809,0.865424541

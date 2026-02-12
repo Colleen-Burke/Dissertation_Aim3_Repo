@@ -1,0 +1,7 @@
+﻿exposure,biomarker,race,estimate,conf.low,conf.high
+Social_Isolation,sRAGE,Overall,-0.400661848,-0.946787072,0.145463377
+Social_Isolation,sRAGE,White,-0.7738158,-1.469824564,-0.077807036
+Social_Isolation,sRAGE,Non-White,0.502574122,-0.463393383,1.468541627
+Social_Health,sRAGE,Overall,-0.367102633,-0.883948641,0.149743375
+Social_Health,sRAGE,White,-0.606675255,-1.249401494,0.036050984
+Social_Health,sRAGE,Non-White,0.446657735,-0.582953972,1.476269443

@@ -1,0 +1,7 @@
+﻿exposure,biomarker,race,estimate,conf.low,conf.high
+Social_Isolation,sTREM_1,Overall,-0.538366738,-1.064835532,-0.011897944
+Social_Isolation,sTREM_1,White,-0.93491207,-1.624919735,-0.244904406
+Social_Isolation,sTREM_1,Non-White,0.481364945,-0.269572099,1.232301989
+Social_Health,sTREM_1,Overall,-0.515555198,-1.013215872,-0.017894524
+Social_Health,sTREM_1,White,-0.781691183,-1.418387629,-0.144994737
+Social_Health,sTREM_1,Non-White,0.41991653,-0.383831424,1.223664484

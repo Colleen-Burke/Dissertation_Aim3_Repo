@@ -1,0 +1,7 @@
+﻿exposure,biomarker,race,estimate,conf.low,conf.high
+Social_Isolation,GM_CSF,Overall,-0.111938144,-0.507220199,0.283343912
+Social_Isolation,GM_CSF,White,-0.19992028,-0.711444256,0.311603696
+Social_Isolation,GM_CSF,Non-White,0.339257324,-0.233451265,0.911965913
+Social_Health,GM_CSF,Overall,-0.304575138,-0.674103248,0.064952971
+Social_Health,GM_CSF,White,-0.166012215,-0.634213006,0.302188576
+Social_Health,GM_CSF,Non-White,-0.324169587,-0.933885989,0.285546814

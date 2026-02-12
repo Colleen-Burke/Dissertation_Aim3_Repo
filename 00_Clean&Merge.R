@@ -336,7 +336,17 @@ summary(Transitions$social_function_num)
 Transitions <- Transitions |>
   mutate(
     social_health_num = social_relationships_num + social_activities_num + 
-      isolation_score
+      isolation_score,
+    social_health2_d = case_when(
+      social_health_num %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11) ~ "Poor",   
+      social_health_num %in% c(12, 13, 14) ~ "Good",
+      TRUE ~ NA_character_
+    ),
+    social_health_d = case_when(
+      social_health_num %in% c(2, 3, 4, 5, 6, 7, 8, 9, 10) ~ "Poor",   
+      social_health_num %in% c(11, 12, 13, 14) ~ "Good",
+      TRUE ~ NA_character_
+      )
   )
 
 table(Transitions$social_health_num, useNA = "ifany")

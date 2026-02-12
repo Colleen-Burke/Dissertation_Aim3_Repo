@@ -257,13 +257,13 @@ confint(lm_shh2_d)
  
  
 # # ---------- Social Isolation New Dichotomized Models ----------
-# lm_sid1_new <- lm(PC1 ~ isolation_cat2_d, data = analysis_df)
-# summary(lm_sid1_new)
-# confint(lm_sid1_new)
+ lm_sid1_new <- lm(PC1 ~ isolation_cat2_d, data = analysis_df)
+ summary(lm_sid1_new)
+ confint(lm_sid1_new)
  
-# lm_sid2_new <- lm(PC2 ~ isolation_cat2_d, data = analysis_df)
-# summary(lm_sid2_new)
-# confint(lm_sid2_new)
+ lm_sid2_new <- lm(PC2 ~ isolation_cat2_d, data = analysis_df)
+ summary(lm_sid2_new)
+ confint(lm_sid2_new)
  
  
 # # ---------- Social Isolation Item (Communicate) Dichotomized Models ----------
