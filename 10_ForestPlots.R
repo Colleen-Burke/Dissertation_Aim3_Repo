@@ -4,21 +4,41 @@ library(ggplot2)
 library(here)
 
 #------ PCA Models -------------
-PCA_overall <- read.csv(here("PCA_overall.csv"))
-
-PCA_overall %>%
-  mutate(Social = factor(Social, levels = c(1, 0))) %>%  # Reorder so 1 is on top
-  ggplot(aes(y = Exposure, x = Estimate, color = Outcome)) +
-  facet_grid(rows = vars(Outcome, Social), scales = "free_y", space = "free_y",
-             labeller = labeller(Social = function(x) "")) +  # Remove Social labels
-  geom_errorbarh(aes(xmin = Lower_CI, xmax = Upper_CI),
-                 height = 0.2,
-                 position = position_dodge(width = 0.5)) +
-  geom_point(size = 2, position = position_dodge(width = 0.5)) +
-  geom_vline(xintercept = 0, linetype = 2) +
-  labs(x = "Estimate", y = "Social Health Factors", color = NULL) +
+ggplot(ggplot_data_pca,
+       aes(y = Exposure, x = Estimate)) +
+  
+  geom_vline(xintercept = 0, linetype = 2, color = "black") +
+  
+  geom_errorbarh(
+    aes(xmin = Lower_CI, xmax = Upper_CI),
+    height = 0.2,
+    color = "black"
+  ) +
+  
+  geom_point(
+    size = 2.5,
+    color = "black"
+  ) +
+  
+  facet_wrap(
+    ~ Outcome,
+    ncol = 1,
+    scales = "free_y",
+    strip.position = "top"
+  ) +
+  
+  labs(
+    x = "Estimate",
+    y = "Social Health Factors"
+  ) +
+  
   theme_minimal() +
-  guides(color = "none")
+  theme(
+    strip.text.x = element_text(face = "bold", size = 11),
+    strip.background = element_blank(),
+    panel.spacing.y = unit(1.0, "lines")
+  )
+
 
 
 #------ PC1 Model Stratified -------------
