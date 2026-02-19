@@ -6,12 +6,25 @@ library(here)
 #------ PCA Models -------------
 PCA_overall <- read.csv(here("PCA_overall.csv"))
 
+PCA_overall <- PCA_overall |> 
+  mutate(
+    Exposure = factor(Exposure,
+                      levels = c("Social_Isolation",
+                                 "Social_Activity", 
+                                 "Social_Roles",
+                                 "Social_Health"),
+                      labels = c("Social Isolation",
+                                 "Social Activity", 
+                                 "Social Roles",
+                                 "Social Health"))
+  )
+
 ggplot(PCA_overall, aes(y = Exposure, x = Estimate)) +
   geom_vline(xintercept = 0, linetype = 2) +
   geom_errorbarh(aes(xmin = Lower_CI, xmax = Upper_CI), height = 0.2) +
   geom_point(size = 2.5) +
   facet_wrap(~ Outcome, ncol = 1, scales = "free_y", strip.position = "top") +
-  labs(x = "Estimate", y = "Social Health Factors") +
+  labs(x = "Estimate", y = "Social Factors") +
   theme_minimal() +
   theme(
     strip.text.x = element_text(face = "bold", size = 11),
@@ -27,13 +40,13 @@ PCA_overall_strat <- read.csv(here("PCA_overall_strat.csv"))
 ggplot_data <- PCA_overall_strat %>%
   mutate(
     Exposure = factor(Exposure,
-                      levels = c("Social_Roles", 
+                      levels = c("Social_Isolation",
                                  "Social_Activity", 
-                                 "Social_Isolation", 
+                                 "Social_Roles",
                                  "Social_Health"),
-                      labels = c("Social Roles", 
+                      labels = c("Social Isolation",
                                  "Social Activity", 
-                                 "Social Isolation", 
+                                 "Social Roles",
                                  "Social Health")),
     Social = factor(Social, levels = c(1, 0)),
     Race = factor(Race,
