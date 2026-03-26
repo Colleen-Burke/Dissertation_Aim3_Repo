@@ -14,8 +14,8 @@ PCA_overall <- PCA_overall |>
                                  "Social_Roles",
                                  "Social_Health"),
                       labels = c("Social Isolation",
-                                 "Social Activity", 
-                                 "Social Roles",
+                                 "Social Participation", 
+                                 "Social Relationships",
                                  "Social Health"))
   )
 
@@ -45,8 +45,8 @@ ggplot_data <- PCA_overall_strat %>%
                                  "Social_Roles",
                                  "Social_Health"),
                       labels = c("Social Isolation",
-                                 "Social Activity", 
-                                 "Social Roles",
+                                 "Social Participation", 
+                                 "Social Relationships",
                                  "Social Health")),
     Social = factor(Social, levels = c(1, 0)),
     Race = factor(Race,
